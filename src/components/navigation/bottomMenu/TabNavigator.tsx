@@ -6,7 +6,14 @@ import { AccountScreenNavigator } from '@components/screens/account/AccountScree
 import { HomeScreenNavigator } from '@components/screens/home/HomeScreenNavigator';
 import { menuStyles } from './menuStyles';
 import { theme } from 'src/utils/theme';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import HomeOutline from './../../../assets/icons/home-outline.svg';
+import HomeFilled from './../../../assets/icons/home-filled.svg';
+import BudgetOutline from "./../../../assets/icons/budget-outline.svg"
+import BudgetFilled from './../../../assets/icons/budget-filled.svg';
+import AIOutline from './../../../assets/icons/ai-outline.svg';
+import AIFilled from './../../../assets/icons/ai-filled.svg';
+import AccountOutline from './../../../assets/icons/account-outline.svg';
+import AccountFilled from './../../../assets/icons/account-filled.svg';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,25 +27,25 @@ export const TabNavigator = () => {
         tabBarLabelStyle: menuStyles.menuLabel, 
         tabBarActiveBackgroundColor: theme.colors.primary,
         tabBarActiveTintColor: 'white',
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
+        tabBarIcon: ({ focused }) => {
+          let IconComponent;
           switch (route.name) {
             case 'HomeScreenNavigator':
-              iconName = focused ? 'home-filled' : 'home';
+              IconComponent = focused ? HomeFilled : HomeOutline;
               break;
             case 'BudgetScreenNavigator':
-              iconName = focused ? 'attach-money' : 'attach-money';
+              IconComponent = focused ? BudgetFilled : BudgetOutline;
               break;
             case 'AIAnalyticsScreenNavigator':
-              iconName = focused ? 'auto-awesome' : 'auto-awesome';
+              IconComponent = focused ? AIFilled : AIOutline;
               break;
             case 'AccountScreenNavigator':
-              iconName = focused ? 'person' : 'person';
+              IconComponent = focused ? AccountFilled : AccountOutline;
               break;
             default:
-              iconName = 'circle';
+              IconComponent = HomeOutline;
           }
-          return <Icon name={iconName} size={28} color={'white'} />;
+          return <IconComponent width={28} height={28} style={{marginTop: 10 }}/>;
         },
       })}
     >

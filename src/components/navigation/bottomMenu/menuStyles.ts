@@ -9,14 +9,10 @@ const bottomPadding = initialWindowMetrics?.insets?.bottom
 
 export const menuStyles = StyleSheet.create({
   menuContainer: {
-    borderTopColor: theme.colors.primary,
-    borderTopWidth: 1,
     flexDirection: 'row',
     height: 71,
-    justifyContent: 'space-around',
     paddingBottom: bottomPadding,
     backgroundColor: theme.colors.primary,
-    right: 0,
   },
   tabButton: {
     flex: 1,
@@ -29,6 +25,6 @@ export const menuStyles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     fontSize: 12,
     fontWeight: 'bold',
-    marginTop: 4
+    marginTop: 8
   },
 });
