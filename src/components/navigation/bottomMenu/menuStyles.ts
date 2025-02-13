@@ -11,7 +11,7 @@ export const menuStyles = StyleSheet.create({
   menuContainer: {
     flexDirection: 'row',
     height: 71,
-    paddingBottom: bottomPadding,
+    paddingBottom: bottomPadding + 20,
     backgroundColor: theme.colors.primary,
   },
   tabButton: {

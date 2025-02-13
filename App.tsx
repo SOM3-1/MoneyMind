@@ -3,35 +3,38 @@ import { MenuWrapperComponent } from '@components/navigation/bottomMenu/MenuWrap
 import React from 'react';
 import {
   SafeAreaView,
-  StatusBar,
-  useColorScheme,
 } from 'react-native';
-import {Provider} from 'react-redux';
-import {appStore, persistor} from './src/store/appStore';
-
-import {
-  Colors
-} from 'react-native/Libraries/NewAppScreen';
-
-import {PersistGate} from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
+import { appStore, persistor } from './src/store/appStore';
+import { PersistGate } from 'redux-persist/integration/react';
 import { theme } from 'src/utils/theme';
+import { CustomError } from '@components/error/CustomError';
+import ErrorBoundary from 'react-native-error-boundary';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
+  
   const backgroundStyle = {
     backgroundColor: theme.colors.background,
     flex: 1
   };
 
+  const CustomFallback = (props: { error: Error; resetError: Function }) => (
+    <CustomError errorMessage={props.error.message} crashError={props.error} />
+  );
+
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <Provider store={appStore}>
-        <PersistGate loading={null} persistor={persistor}>
-        <MenuWrapperComponent/>
-        </PersistGate>
-      </Provider>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={backgroundStyle}>
+        <ErrorBoundary FallbackComponent={CustomFallback}>
+          <Provider store={appStore}>
+            <PersistGate loading={null} persistor={persistor}>
+              <MenuWrapperComponent />
+            </PersistGate>
+          </Provider>
+        </ErrorBoundary>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 

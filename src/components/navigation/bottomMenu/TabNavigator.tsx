@@ -4,7 +4,6 @@ import { BudgetScreenNavigator } from '@components/screens/budget/BudgetScreenNa
 import { AIAnalyticsScreenNavigator } from '@components/screens/ai/AIAnalyticsScreenNavigator';
 import { AccountScreenNavigator } from '@components/screens/account/AccountScreenNavigator';
 import { HomeScreenNavigator } from '@components/screens/home/HomeScreenNavigator';
-import { menuStyles } from './menuStyles';
 import { theme } from 'src/utils/theme';
 import HomeOutline from './../../../assets/icons/home-outline.svg';
 import HomeFilled from './../../../assets/icons/home-filled.svg';
@@ -14,10 +13,12 @@ import AIOutline from './../../../assets/icons/ai-outline.svg';
 import AIFilled from './../../../assets/icons/ai-filled.svg';
 import AccountOutline from './../../../assets/icons/account-outline.svg';
 import AccountFilled from './../../../assets/icons/account-filled.svg';
+import useMenuStyles from './usemenuStyles';
 
 const Tab = createBottomTabNavigator();
 
 export const TabNavigator = () => {
+  const menuStyles = useMenuStyles();
   return (
     <Tab.Navigator
       initialRouteName="HomeScreenNavigator"
