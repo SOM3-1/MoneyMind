@@ -6,12 +6,13 @@ import { AppState } from '@ourtypes/AppState';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['isLoggedIn', ],
+  whitelist: ['isLoggedIn', 'user'],
 };
 
 const initialState: AppState = {
-  isLoggedIn: true,
-  network: { isConnected: true }
+  isLoggedIn: false,
+  network: { isConnected: true },
+  user:  null
 }
 
 const slice = createSlice({
@@ -19,15 +20,14 @@ const slice = createSlice({
   initialState,
   reducers: {
 
-    loginUser: (state, action: PayloadAction<{ email: string; password: string }>) => {
-      const { email, password } = action.payload;
-        state.isLoggedIn = true;
+    login: (state, action: PayloadAction<{ uid: string; email: string }>) => {
+      state.isLoggedIn = true;
+      state.user = action.payload;
     },
-
-    logoutUser: (state) => {
+    logout: (state) => {
       state.isLoggedIn = false;
+      state.user = null;
     },
-    
     
     setNetworkStatus: (state, action: PayloadAction<{ isConnected: boolean }>) => {
       state.network.isConnected = action.payload.isConnected;
@@ -37,5 +37,5 @@ const slice = createSlice({
 
 const persistedReducer = persistReducer(persistConfig, slice.reducer);
 export { persistedReducer as appReducer };
-export const { loginUser, logoutUser, setNetworkStatus } = slice.actions;
+export const { login, logout, setNetworkStatus } = slice.actions;
 export type { AppState };
