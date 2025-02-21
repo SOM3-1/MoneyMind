@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     fontSize: 14,
     color: theme.colors.subtitle,
-    fontWeight: 500
+    fontWeight: 600
 
   },
   labelStyle: {

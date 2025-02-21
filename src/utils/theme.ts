@@ -2,7 +2,7 @@ import {Dimensions} from 'react-native';
 export const theme = {
   colors: {
     primary: '#0E4E82',
-    active: '#16C31D',
+    active: '#04950A',
     info: '#F5F5F5',
     white: '#FFFFFF',
     black: '#000000',

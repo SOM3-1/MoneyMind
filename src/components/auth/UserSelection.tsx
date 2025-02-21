@@ -11,5 +11,5 @@ export const UserSelection: React.FC = () => {
         setSelection(val)
     }
 
-    return (<>{selection === SelectionType.login ? <Register handleSelection={handleSelection} /> : (selection === SelectionType.registration ? <Register handleSelection={handleSelection} /> : <Register handleSelection={handleSelection} />)}</>)
+    return (<>{selection === SelectionType.login ? <Login handleSelection={handleSelection} /> : (selection === SelectionType.registration ? <Register handleSelection={handleSelection} /> : <ForgotPassword handleSelection={handleSelection} />)}</>)
 }
