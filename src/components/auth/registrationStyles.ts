@@ -19,7 +19,7 @@ export const registrationStyles = StyleSheet.create({
         color: theme.colors.background
     },
     inputContainer: {
-        gap: 8
+        gap: 8,
     },
     icon: {
         marginRight: 10,
@@ -114,5 +114,11 @@ export const registrationStyles = StyleSheet.create({
         flexDirection: 'row',
         gap: 2,
         alignItems: 'center'
+    },
+    recoveryInstructions:{
+        fontFamily: 'Montserrat-Regular',
+        fontSize:16,
+        lineHeight: 25.6,
+        textAlign: 'justify'
     }
 });

@@ -6,7 +6,7 @@ import { theme } from "src/utils/theme";
 
 export const CustomAuthHeader: React.FC<{ title: string }> = ({ title }) => {
     return (<View style={registrationStyles.header}>
-        <Text style={registrationStyles.title}>Sign Up</Text>
+        <Text style={registrationStyles.title}>{title}</Text>
         <TouchableOpacity style={{ flexDirection: 'row', gap: 6 }}>
             <Icon source="help-circle-outline" size={20} color={theme.colors.link} />
             <Text style={registrationStyles.linkText}>Help</Text>
