@@ -1,5 +1,7 @@
-import { StyleSheet } from "react-native";
+import { DimensionValue, StyleSheet } from "react-native";
 import { theme } from "src/utils/theme";
+
+const globalWidth: DimensionValue = '85%'
 
 export const registrationStyles = StyleSheet.create({
     container: {
@@ -17,7 +19,7 @@ export const registrationStyles = StyleSheet.create({
         color: theme.colors.background
     },
     inputContainer: {
-        gap: 20
+        gap: 8
     },
     icon: {
         marginRight: 10,
@@ -32,8 +34,8 @@ export const registrationStyles = StyleSheet.create({
         borderRadius: 100,
         alignItems: 'center',
         height: 50,
-        width:'auto',
-        justifyContent:'center'
+        width: 'auto',
+        justifyContent: 'center'
     },
     disabledButton: {
         backgroundColor: theme.colors.disabled,
@@ -55,7 +57,7 @@ export const registrationStyles = StyleSheet.create({
     footerContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
-        alignSelf:'center',
+        alignSelf: 'center',
     },
     footerText: {
         fontSize: 16,
@@ -81,21 +83,36 @@ export const registrationStyles = StyleSheet.create({
         lineHeight: 26,
         fontSize: 19,
         color: theme.colors.black,
-        textAlign:'center'
+        textAlign: 'center'
     },
     connectingText: {
         color: theme.colors.black,
         fontFamily: 'Montserrat-Regular',
         lineHeight: 19.6,
         fontSize: 14,
-        textAlign:'center'
+        textAlign: 'center'
     },
     hyperLinkContainer: {
-        justifyContent:'center',
-        textAlign:'center',
+        justifyContent: 'center',
+        textAlign: 'center',
     },
     flexRight: {
-            justifyContent: 'flex-end',
-            alignSelf:'flex-end'
-        }
+        alignSelf: 'flex-end',
+    },
+    firstSection:{
+        flex: 1.5,
+    }, secondSection:{
+        flex: 2,
+         width:globalWidth 
+
+    }, thirdSection:{
+        flex: 1,
+        width:globalWidth ,
+        gap: 15
+    },
+    loggedInContainer:{
+        flexDirection: 'row',
+        gap: 2,
+        alignItems: 'center'
+    }
 });
