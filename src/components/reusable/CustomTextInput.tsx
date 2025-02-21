@@ -38,6 +38,11 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
         onBlur={onBlur}
         contentStyle={styles.labelStyle}
         theme={{
+          colors: {
+            primary: theme.colors.subtitle,
+            background: theme.colors.white, 
+            text: theme.colors.subtitle,  
+        },
         }}
       />
     </View>
@@ -48,17 +53,18 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     marginVertical: 8,
+    height: 56
   },
   input: {
-    backgroundColor: "white",
     fontFamily: 'Montserrat-Bold',
     fontSize: 14,
     color: theme.colors.subtitle,
-    fontWeight: 600
-
+    fontWeight: 600,
+    height: 56
   },
   labelStyle: {
     color: theme.colors.subtitle,
+    fontWeight: 100,
   }
 });
 

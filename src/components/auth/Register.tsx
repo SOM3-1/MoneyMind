@@ -91,40 +91,42 @@ export const Register: React.FC<Prop> = ({ handleSelection }) => {
         <LogoComponent />
       </View>
       <View style={registrationStyles.secondSection}>
-        <CustomAuthHeader title={"Sign Up"} />
-        <View style={registrationStyles.inputContainer}>
-          <CustomTextInput
-            label="Name"
-            value={fullName}
-            onChangeText={setFullName}
-            placeholder="Enter your name"
-          />
-          <CustomTextInput
-            label="Email Address"
-            value={email}
-            placeholder="abc@mail.com"
-            onChangeText={(text) => {
-              setEmail(text);
-            }}
-            onBlur={() => validateEmail(email)}
-          />
+        <View style={registrationStyles.headerSeparator}>
+          <CustomAuthHeader title={"Sign Up"} />
+          <View style={registrationStyles.inputContainer}>
+            <CustomTextInput
+              label="Name"
+              value={fullName}
+              onChangeText={setFullName}
+              placeholder="Enter your name"
+            />
+            <CustomTextInput
+              label="Email Address"
+              value={email}
+              placeholder="abc@mail.com"
+              onChangeText={(text) => {
+                setEmail(text);
+              }}
+              onBlur={() => validateEmail(email)}
+            />
 
-          <CustomTextInput
-            label="Password"
-            value={password}
-            placeholder="Enter your password"
-            secureTextEntry={true}
-            onChangeText={(text) => {
-              setPassword(text);
-            }}
-            onBlur={() => validatePassword(password)}
-          />
-          <TouchableOpacity
-            onPress={() => handleSelection(SelectionType.forgot)}
-            style={registrationStyles.flexRight}
-          >
-            <Text style={registrationStyles.linkText}>Forgot password?</Text>
-          </TouchableOpacity>
+            <CustomTextInput
+              label="Password"
+              value={password}
+              placeholder="Enter your password"
+              secureTextEntry={true}
+              onChangeText={(text) => {
+                setPassword(text);
+              }}
+              onBlur={() => validatePassword(password)}
+            />
+            <TouchableOpacity
+              onPress={() => handleSelection(SelectionType.forgot)}
+              style={registrationStyles.flexRight}
+            >
+              <Text style={registrationStyles.linkText}>Forgot password?</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
       <View style={registrationStyles.thirdSection}>

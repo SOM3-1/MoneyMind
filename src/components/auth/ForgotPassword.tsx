@@ -67,25 +67,27 @@ export const ForgotPassword: React.FC<Prop> = ({ handleSelection }) => {
                 <LogoComponent />
             </View>
             <View style={registrationStyles.secondSection}>
-                <CustomAuthHeader title={"Password Recovery"} />
-                <View style={registrationStyles.inputContainer}>
-                    <View style={{marginVertical: 20}}><Text style={registrationStyles.recoveryInstructions}>Enter the email address linked to your account to get a recovery link with instructions.</Text></View>
-                    <CustomTextInput
-                        label="Email Address"
-                        value={email}
-                        placeholder="abc@mail.com"
-                        onChangeText={(text) => {
-                            setEmail(text);
-                        }}
-                        onBlur={() => validateEmail(email)}
-                    />
+                <View style={registrationStyles.headerSeparator}>
+                    <CustomAuthHeader title={"Password Recovery"} />
+                    <View style={registrationStyles.inputContainer}>
+                        <View style={{}}><Text style={registrationStyles.recoveryInstructions}>Enter the email address linked to your account to get a recovery link with instructions.</Text></View>
+                        <CustomTextInput
+                            label="Email Address"
+                            value={email}
+                            placeholder="abc@mail.com"
+                            onChangeText={(text) => {
+                                setEmail(text);
+                            }}
+                            onBlur={() => validateEmail(email)}
+                        />
 
-                    <TouchableOpacity
-                        onPress={() => handleSelection(SelectionType.login)}
-                        style={registrationStyles.flexRight}
-                    >
-                        <Text style={registrationStyles.linkText}>Try another account?</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => handleSelection(SelectionType.login)}
+                            style={registrationStyles.flexRight}
+                        >
+                            <Text style={registrationStyles.linkText}>Try another account?</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
             <View style={registrationStyles.thirdSection}>
