@@ -19,12 +19,14 @@ export const customErrorStyles = StyleSheet.create({
         fontWeight: 500,
         fontFamily:'Montserrat-Bold',
         textAlign: 'center',
-        lineHeight: 32
+        lineHeight: 32,
+        color: theme.colors.black
     },
     body: {
         fontSize: 18,
         fontFamily:'Montserrat-Regular',
         textAlign: 'center',
-        lineHeight: 27
+        lineHeight: 27,
+        color: theme.colors.black
     }
 })
