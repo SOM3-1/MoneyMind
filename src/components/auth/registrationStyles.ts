@@ -121,6 +121,7 @@ export const registrationStyles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 25.6,
     textAlign: "justify",
+    color: theme.colors.shadesOfGray
   },
   headerSeparator: {
     gap: 25,

@@ -9,6 +9,8 @@ export const theme = {
     background: '#f9fcf7',
     link: '#1E88E5',
     disabled: '#6c757d',
-    subtitle:'#616161'
+    subtitle:'#616161',
+    shadesOfGray: '#333333',
+    darkText: '#212121'
   },
 } as const;

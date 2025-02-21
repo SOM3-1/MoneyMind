@@ -45,7 +45,7 @@ export const Register: React.FC<Prop> = ({ handleSelection }) => {
     setIsPasswordValid(isValid);
     if (!isValid) {
       setError("Password must be at least 6 characters");
-    } else if (error === "Password must be at least 8 characters") {
+    } else if (error === "Password must be at least 6 characters") {
       setError("");
     }
     return isValid;
@@ -92,7 +92,7 @@ export const Register: React.FC<Prop> = ({ handleSelection }) => {
       </View>
       <View style={registrationStyles.secondSection}>
         <View style={registrationStyles.headerSeparator}>
-          <CustomAuthHeader title={"Sign Up"} />
+          <CustomAuthHeader title={"Sign Up to MoneyMind"} />
           <View style={registrationStyles.inputContainer}>
             <CustomTextInput
               label="Name"
