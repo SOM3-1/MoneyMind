@@ -11,6 +11,7 @@ import { theme } from 'src/utils/theme';
 import { CustomError } from '@components/error/CustomError';
 import ErrorBoundary from 'react-native-error-boundary';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import AuthListener from '@components/auth/AuthListener';
 
 function App(): React.JSX.Element {
   
@@ -30,6 +31,7 @@ function App(): React.JSX.Element {
           <Provider store={appStore}>
             <PersistGate loading={null} persistor={persistor}>
               <MenuWrapperComponent />
+              <AuthListener/>
             </PersistGate>
           </Provider>
         </ErrorBoundary>

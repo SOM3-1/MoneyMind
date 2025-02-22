@@ -1,13 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 
 import useMenuStyles from './usemenuStyles';
 import { TabNavigator } from './TabNavigator';
 import { UserSelection } from '@components/auth/UserSelection';
 import { AppState } from '@ourtypes/AppState';
-
+import NetInfo from '@react-native-community/netinfo';
+import {OfflineOverlay} from '@components/noNetInfo/OfflineOverlay';
 export const MenuWrapperComponent = () => {
   const styles = useMenuStyles();
 
@@ -16,7 +17,16 @@ export const MenuWrapperComponent = () => {
     useRef<ReturnType<typeof NavigationContainer.prototype.ref>>();
   const routeNameRef = useRef<string | undefined>();
  
+  const [isOffline, setIsOffline] = useState(false);
+  
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener(state => {
+      setIsOffline(!state.isConnected);
+    });
 
+    return () => unsubscribe();
+  }, []);
+  
   const stateChange = async () => {
     const previousRouteName = routeNameRef?.current;
     const currentRouteName = navigationRef?.current?.getCurrentRoute()?.name;
@@ -31,6 +41,7 @@ export const MenuWrapperComponent = () => {
         onStateChange={stateChange}>
         {isLoggedIn ? <TabNavigator /> : <UserSelection />}
       </NavigationContainer>
+      {isOffline && <OfflineOverlay />} 
     </View>
   );
 };
