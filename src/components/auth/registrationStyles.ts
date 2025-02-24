@@ -1,13 +1,13 @@
 import { getFontSize } from "@helpers/dynamic";
-import { DimensionValue, StyleSheet } from "react-native";
+import { DimensionValue, StyleSheet, PixelRatio } from "react-native";
 import { theme } from "src/utils/theme";
+const scale = PixelRatio.get();
 
 const globalWidth: DimensionValue = "85%";
 
 export const registrationStyles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
+    flexGrow: 1,
     backgroundColor: theme.colors.background,
     alignContent: "center",
     alignItems: "center",
@@ -101,16 +101,19 @@ export const registrationStyles = StyleSheet.create({
     alignSelf: "flex-end",
   },
   firstSection: {
-    flex: 1.5,
+    height: scale*110,
+    justifyContent:'center'
   },
   secondSection: {
-    flex: 2,
+    height: 350,
     width: globalWidth,
   },
   thirdSection: {
-    flex: 1,
     width: globalWidth,
     gap: 15,
+    height: scale*30,
+    justifyContent:'center',
+    marginBottom: 100
   },
   loggedInContainer: {
     flexDirection: "row",

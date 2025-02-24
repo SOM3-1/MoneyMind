@@ -53,8 +53,6 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    marginVertical: 8,
-    height: 56
   },
   input: {
     fontFamily: 'Montserrat-Bold',
