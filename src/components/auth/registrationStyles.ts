@@ -1,3 +1,4 @@
+import { getFontSize } from "@helpers/dynamic";
 import { DimensionValue, StyleSheet } from "react-native";
 import { theme } from "src/utils/theme";
 
@@ -12,7 +13,7 @@ export const registrationStyles = StyleSheet.create({
     alignItems: "center",
   },
   headerText: {
-    fontSize: 24,
+    fontSize: getFontSize(24),
     fontWeight: "bold",
     marginBottom: 20,
     textAlign: "center",
@@ -26,7 +27,7 @@ export const registrationStyles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    fontSize: 16,
+    fontSize: getFontSize(16),
     color: theme.colors.black,
   },
   button: {
@@ -43,7 +44,7 @@ export const registrationStyles = StyleSheet.create({
   buttonText: {
     fontFamily: "Montserrat-Bold",
     lineHeight: 26,
-    fontSize: 19,
+    fontSize: getFontSize(19),
     color: theme.colors.white,
   },
   errorText: {
@@ -60,11 +61,11 @@ export const registrationStyles = StyleSheet.create({
     alignSelf: "center",
   },
   footerText: {
-    fontSize: 16,
+    fontSize: getFontSize(16),
     color: "#000",
   },
   footerLink: {
-    fontSize: 16,
+    fontSize: getFontSize(16),
     color: theme.colors.primary,
     textDecorationLine: "underline",
   },
@@ -76,12 +77,12 @@ export const registrationStyles = StyleSheet.create({
     color: theme.colors.link,
     fontFamily: "Montserrat-Regular",
     lineHeight: 19.6,
-    fontSize: 14,
+    fontSize: getFontSize(14),
   },
   title: {
     fontFamily: "Montserrat-Bold",
     lineHeight: 26,
-    fontSize: 19,
+    fontSize: getFontSize(19),
     color: theme.colors.black,
     textAlign: "center",
   },
@@ -89,7 +90,7 @@ export const registrationStyles = StyleSheet.create({
     color: theme.colors.black,
     fontFamily: "Montserrat-Regular",
     lineHeight: 19.6,
-    fontSize: 14,
+    fontSize: getFontSize(14),
     textAlign: "center",
   },
   hyperLinkContainer: {
@@ -118,7 +119,7 @@ export const registrationStyles = StyleSheet.create({
   },
   recoveryInstructions: {
     fontFamily: "Montserrat-Regular",
-    fontSize: 16,
+    fontSize: getFontSize(16),
     lineHeight: 25.6,
     textAlign: "justify",
     color: theme.colors.shadesOfGray

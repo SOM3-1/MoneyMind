@@ -2,6 +2,7 @@ import React from "react";
 import { TextInput } from "react-native-paper";
 import { View, StyleSheet } from "react-native";
 import { theme } from "src/utils/theme";
+import { getFontSize } from "@helpers/dynamic";
 
 interface CustomTextInputProps {
   label?: string;
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
   },
   input: {
     fontFamily: 'Montserrat-Bold',
-    fontSize: 14,
+    fontSize: getFontSize(14),
     color: theme.colors.subtitle,
     fontWeight: 600,
     height: 56
