@@ -22,7 +22,8 @@ export const registerUser = async (userId: string, name: string, email: string) 
 
     return data;
   } catch (error) {
-    console.error("API Error:", error.message);
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
+    console.error("API Error:", errorMessage);
     throw error;
   }
 };
