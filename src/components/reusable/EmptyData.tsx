@@ -1,26 +1,25 @@
-import React from "react"
-import { View, Text } from 'react-native';
+import React from "react";
+import { View, Text } from "react-native";
 import FastImage from "react-native-fast-image";
 import { homeScreenStyles } from "../screens/home/homeScreenStyles";
 import { gifMappings } from "@constants/gifMappings";
-type EmptyDataType = "transactions" | "budget";
+import { ScreenType } from "@ourtypes/ScreenType";
 
-const content: Record<EmptyDataType, { title: string; message1: string; message2: string }> = {
-    transactions: {
+const content: Record<ScreenType, { title: string; message1: string; message2: string }> = {
+    [ScreenType.TRANSACTIONS]: {
         title: "No Transactions Yet",
         message1: "Your expenses will appear here.",
         message2: "Tap the button below to add your first transaction."
     },
-    budget: {
+    [ScreenType.BUDGET]: {
         title: "No Budgets Set",
         message1: "Your budget plans will appear here.",
         message2: "Tap the button below to get started."
     }
-}
+};
 
-export const EmptyData: React.FC<{ type: EmptyDataType }> = ({ type }) => {
-
-    const { title, message1, message2 } = content[type] || content.transactions;
+export const EmptyData: React.FC<{ type: ScreenType }> = ({ type }) => {
+    const { title, message1, message2 } = content[type];
     const gif = gifMappings[type];
 
     return (
@@ -32,8 +31,8 @@ export const EmptyData: React.FC<{ type: EmptyDataType }> = ({ type }) => {
             />
             <View>
                 <Text style={homeScreenStyles.body}>{message1}</Text>
-                <Text style={homeScreenStyles.body}>{message2}</Text></View>
+                <Text style={homeScreenStyles.body}>{message2}</Text>
+            </View>
         </View>
     );
-}
-
+};

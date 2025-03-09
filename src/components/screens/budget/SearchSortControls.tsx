@@ -1,4 +1,4 @@
-import { Transaction } from "@ourtypes/Transaction";
+import { Budget } from "@ourtypes/Budget";
 import React, { useState } from "react";
 import { View, TextInput, StyleSheet } from "react-native";
 import { Menu, Button, Divider, Text } from "react-native-paper";
@@ -6,11 +6,11 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { theme } from "src/utils/theme";
 
 interface Props {
-  transactions: Transaction[];
-  onUpdate: (filteredTransactions: Transaction[]) => void;
+  budgets: Budget[];
+  onUpdate: (filteredBudgets: Budget[]) => void;
 }
 
-export const SearchSortControls: React.FC<Props> = ({ transactions, onUpdate }) => {
+export const SearchSortControls: React.FC<Props> = ({ budgets, onUpdate }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState("date");
   const [menuVisible, setMenuVisible] = useState(false);
@@ -27,18 +27,23 @@ export const SearchSortControls: React.FC<Props> = ({ transactions, onUpdate }) 
   };
 
   const filterAndSort = (query: string, sortOption: string) => {
-    let filtered = transactions.filter((txn) =>
-      txn.description.toLowerCase().includes(query.toLowerCase())
+    let filtered = budgets.filter((budget) =>
+      budget.title.toLowerCase().includes(query.toLowerCase())
     );
-
+  
     if (sortOption === "date") {
-      filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      filtered.sort((a, b) => {
+        const dateA = new Date(a.fromDate).getTime();
+        const dateB = new Date(b.fromDate).getTime();
+        return dateB - dateA; 
+      });
     } else if (sortOption === "amount") {
       filtered.sort((a, b) => b.amount - a.amount);
     }
-
+  
     onUpdate(filtered);
   };
+  
 
   return (
     <View style={styles.container}>
@@ -46,11 +51,10 @@ export const SearchSortControls: React.FC<Props> = ({ transactions, onUpdate }) 
         <MaterialIcons name="search" size={20} color={theme.colors.darkText} style={styles.searchIcon} />
         <TextInput
           style={styles.input}
-          placeholder="Search Transactions"
+          placeholder="Search Budgets"
           placeholderTextColor={theme.colors.darkText}
           value={searchQuery}
           onChangeText={handleSearch}
-          keyboardType="numeric"
         />
       </View>
 
@@ -105,19 +109,17 @@ const styles = StyleSheet.create({
   sortButton: {
     flexDirection: "row",
     alignItems: "center",
-    flex: 1,
     borderWidth: 0.5,
     borderColor: theme.colors.subtitle,
     borderRadius: 8,
     width: 116,
     height: 42,
-    paddingHorizontal: 0,
-    justifyContent: 'space-evenly'
+    justifyContent: "center",
+    backgroundColor: theme.colors.white,
   },
   sortButtonContent: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
   },
   sortText: {
     fontFamily: "Montserrat-Regular",

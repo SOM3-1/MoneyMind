@@ -12,20 +12,22 @@ interface CustomTextInputProps {
   secureTextEntry?: boolean;
   keyboardType?: "default" | "numeric" | "email-address";
   style?: object;
-  onBlur?: () => void,
-  editable? : boolean
+  onBlur?: () => void;
+  editable?: boolean;
+  rightIcon?: React.ReactNode; // ✅ Optional right-side icon
 }
 
 const CustomTextInput: React.FC<CustomTextInputProps> = ({
   label = "Enter text",
   value = "",
-  onChangeText = () => { },
+  onChangeText = () => {},
   placeholder = "",
   secureTextEntry = false,
   keyboardType = "default",
   style = {},
   editable = true,
-  onBlur = () => { }
+  onBlur = () => {},
+  rightIcon = null, // Default to null (optional)
 }) => {
   return (
     <View style={[styles.container, style]}>
@@ -39,13 +41,14 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
         keyboardType={keyboardType}
         style={styles.input}
         onBlur={onBlur}
-        contentStyle={styles.labelStyle}
+        editable={editable}
+        right={rightIcon ? <TextInput.Icon icon={() => rightIcon} /> : null} // ✅ Conditionally render the icon
         theme={{
           colors: {
             primary: theme.colors.subtitle,
-            background: theme.colors.white, 
-            text: theme.colors.subtitle,  
-        },
+            background: theme.colors.white,
+            text: theme.colors.subtitle,
+          },
         }}
       />
     </View>
@@ -57,16 +60,17 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   input: {
-    fontFamily: 'Montserrat-Bold',
+    fontFamily: "Montserrat-Bold",
     fontSize: getFontSize(14),
     color: theme.colors.subtitle,
-    fontWeight: 600,
-    height: 56
+    fontWeight: "600",
+    height: 56,
   },
   labelStyle: {
     color: theme.colors.subtitle,
-    fontWeight: 100,
-  }
+    fontWeight: "100",
+    fontFamily: theme.fonts.regular,
+  },
 });
 
 export default CustomTextInput;

@@ -1,6 +1,5 @@
 import { API_URL } from "@env";
 export const registerUser = async (userId: string, name: string, email: string) => {
-  console.log(API_URL,userId, name, email , `${API_URL}/register`)
     try {
     const response = await fetch(`${API_URL}/register`, {
       method: "POST",

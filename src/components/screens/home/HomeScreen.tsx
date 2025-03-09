@@ -12,6 +12,7 @@ import { theme } from "src/utils/theme";
 import { onAuthStateChanged } from "firebase/auth";
 import {auth} from "./../../../../firebaseConfig"
 import { useFocusEffect } from "@react-navigation/native";
+import { ScreenType } from "@ourtypes/ScreenType";
 
 export const HomeScreen: React.FC = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -69,7 +70,7 @@ export const HomeScreen: React.FC = () => {
         <Intro />
 
         {transactions.length === 0 ? (
-          <EmptyData type="transactions" />
+          <EmptyData type={ScreenType.TRANSACTIONS} />
         ) : (
           <View style={{width: '100%', gap: 10}}>
             <SearchSortControls transactions={transactions} onUpdate={handleSearchAndSort} />

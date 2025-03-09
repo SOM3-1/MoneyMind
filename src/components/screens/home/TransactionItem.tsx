@@ -2,12 +2,13 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons"; 
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { DateTime } from "luxon";
 import { homeScreenStyles } from "./homeScreenStyles";
 import { Transaction } from "@ourtypes/Transaction";
 import { ParamListBase, useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { theme } from "src/utils/theme";
 
 const getCategoryIcon = (category: string) => {
   switch (category) {
@@ -51,7 +52,7 @@ export const TransactionItem: React.FC<{ transaction: Transaction }> = ({ transa
       <View style={homeScreenStyles.amountContainer}>
         <Text style={homeScreenStyles.amountText}>${transaction.amount.toFixed(2)}</Text>
         <TouchableOpacity onPress={handleEdit} style={{width: 30, height: 30}}>
-        <MaterialIcons name="edit" size={20} color="gray" /></TouchableOpacity>
+          <MaterialCommunityIcons name="pencil-outline" size={24} color={theme.colors.subtitle} /></TouchableOpacity>
       </View>
     </View>
   );

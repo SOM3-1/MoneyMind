@@ -14,6 +14,8 @@ import ConfirmDeleteDialog from "@components/reusable/ConfirmDeleteDialog";
 import { registrationStyles } from "@components/auth/registrationStyles";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { CustomActivityIndicator } from "@components/reusable/CustomActivityIndicator";
+import { ScreenType } from "@ourtypes/ScreenType";
+import { commonStyles } from "@components/reusable/commonStyles";
 
 type EditTransactionRouteProp = RouteProp<{ EditTransactions: { transaction?: Transaction } }, "EditTransactions">;
 
@@ -46,8 +48,8 @@ export const EditTransactions: React.FC = () => {
         } catch (error) {
             console.error("Failed to update transaction:", error);
             showToast("Failed to update transaction.");
-        }finally {
-            setIsProcessing(false); 
+        } finally {
+            setIsProcessing(false);
         }
     };
 
@@ -65,26 +67,26 @@ export const EditTransactions: React.FC = () => {
         } catch (error) {
             console.error("Failed to delete transaction:", error);
             showToast("Failed to delete transaction.");
-        }finally {
+        } finally {
             setIsProcessing(false);
         }
     };
 
     if (!transaction) {
-        return <Text style={styles.errorText}>Transaction data is missing. Please try again.</Text>;
+        return <Text style={commonStyles.errorText}>Transaction data is missing. Please try again.</Text>;
     }
 
     return (
-        <View style={styles.container}>
+        <View style={commonStyles.container}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 }}>
                 <View style={{ flexDirection: 'row', gap: 20, alignItems: 'center', }}>
                     <MaterialIcons name="arrow-back" size={24} color="black" onPress={() => navigation.goBack()} />
-                    <Text style={styles.header}>Edit Expense</Text></View>
+                    <Text style={commonStyles.header}>Edit Expense</Text></View>
                 <TouchableOpacity onPress={() => { setDeleteDialogVisible(true) }}>
                     <MaterialIcons name="delete-outline" size={24} color={theme.colors.subtitle} />
                 </TouchableOpacity>
             </View>
-            <View style={{gap: 30, marginTop: 40}}><CustomTextInput label="Amount" value={`$ ${transaction.amount.toFixed(2)}`} editable={false} />
+            <View style={{ gap: 30, marginTop: 40 }}><CustomTextInput label="Amount" value={`$ ${transaction.amount.toFixed(2)}`} editable={false} />
 
                 <CustomTextInput label="Description" value={transaction.description} editable={false} />
 
@@ -97,134 +99,35 @@ export const EditTransactions: React.FC = () => {
                     placeholder="Select Category"
                     error={false}
                     disabled={false}
-                    menuContentStyle={styles.dropdownMenu}
+                    menuContentStyle={commonStyles.dropdownMenu}
                 />
-                <CustomTextInput label="Date" value={formattedDate} editable={false} /></View>
+                <CustomTextInput label="Date" value={formattedDate} editable={false}
+                    rightIcon={
+                        <MaterialIcons
+                            name="calendar-today"
+                            size={20}
+                            color={theme.colors.subtitle}
+                        />
+                    }
+                /></View>
 
-
-            <View style={styles.buttonContainer}>
-                <View style={styles.button}>
-                    <TouchableWithoutFeedback onPress={handleSave}>
-                        <View>
-                            <Text style={registrationStyles.buttonText}>Save</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
-                </View>
+            <View style={commonStyles.buttonContainer}>
+                <TouchableOpacity onPress={handleSave} style={commonStyles.button}>
+                    <View>
+                        <Text style={registrationStyles.buttonText}>Save</Text>
+                    </View>
+                </TouchableOpacity>
             </View>
 
             <ConfirmDeleteDialog
                 visible={deleteDialogVisible}
                 onDismiss={() => setDeleteDialogVisible(false)}
                 onConfirm={handleDelete}
+                type={ScreenType.TRANSACTIONS}
             />
             {isProcessing && <CustomActivityIndicator />}
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        padding: 20,
-        flex: 1,
-        backgroundColor: theme.colors.white,
-    },
-    header: {
-        fontSize: 20,
-        fontWeight: "bold",
-    },
-    label: {
-        fontSize: 14,
-        color: "gray",
-        marginBottom: 5,
-    },
-    dropdownButton: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        borderWidth: 1,
-        borderColor: "gray",
-        borderRadius: 5,
-        padding: 10,
-        alignItems: "center",
-    },
-    dropdownContent: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        width: "100%",
-    },
-    dropdownText: {
-        fontSize: 16,
-        color: "black",
-    },
-    dateContainer: {
-        flexDirection: "row",
-        alignItems: "center",
-        borderWidth: 1,
-        borderColor: "gray",
-        borderRadius: 5,
-        padding: 10,
-    },
-    dateInput: {
-        flex: 1,
-    },
-    calendarIcon: {
-        marginLeft: 10,
-    },
-    saveButton: {
-        backgroundColor: theme.colors.active,
-        marginTop: 20,
-    },
-    deleteButton: {
-        backgroundColor: "red",
-        marginTop: 10,
-    },
-    errorText: {
-        fontSize: 16,
-        color: "red",
-        textAlign: "center",
-        marginTop: 20,
-    },
-    dropdown: {
-        backgroundColor: theme.colors.white,
-        borderColor: "gray",
-        borderWidth: 1,
-        borderRadius: 8,
-        paddingVertical: 10,
-        paddingHorizontal: 15,
-    },
-    dropdownMenu: {
-        backgroundColor: theme.colors.background,
-        paddingVertical: 10,
-        paddingHorizontal: 15,
-        borderRadius: 8,
-        elevation: 3,
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-    },
-    dropdownContainer: {
-        marginBottom: 15,
-        borderRadius: 8,
-        borderWidth: 1,
-        borderColor: "gray",
-        backgroundColor: theme.colors.background,
-    },
-    buttonContainer: {
-        position: "absolute",
-        bottom: 40,
-        left: 20,
-        right: 20,
-        width: '100%',
-        height: 50,
-    },
-    button: {
-        backgroundColor: theme.colors.active,
-        borderRadius: 100,
-        alignItems: "center",
-        height: 50,
-        width: "100%",
-        justifyContent: "center",
-    },
-});
 
 export default EditTransactions

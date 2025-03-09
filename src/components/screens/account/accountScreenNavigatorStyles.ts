@@ -2,7 +2,6 @@ import { getFontSize } from "@helpers/dynamic";
 import { DimensionValue, StyleSheet } from "react-native";
 import { theme } from "src/utils/theme";
 
-
 export const accountScreenNavigatorStyles = StyleSheet.create({
   container: {
     flex: 1,

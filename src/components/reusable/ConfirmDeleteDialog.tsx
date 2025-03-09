@@ -1,3 +1,4 @@
+import { ScreenType } from "@ourtypes/ScreenType";
 import React from "react";
 import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import { Dialog, Portal, Button, Text } from "react-native-paper";
@@ -7,15 +8,17 @@ interface ConfirmDeleteDialogProps {
     visible: boolean;
     onDismiss: () => void;
     onConfirm: () => void;
+    type: ScreenType;
 }
 
-export const ConfirmDeleteDialog: React.FC<ConfirmDeleteDialogProps> = ({ visible, onDismiss, onConfirm }) => {
+export const ConfirmDeleteDialog: React.FC<ConfirmDeleteDialogProps> = ({ visible, onDismiss, onConfirm, type }) => {
+    const body:string = `Are you sure you want to delete this ${type === ScreenType.TRANSACTIONS ? 'expense' :'budget'}?`
     return (
         <Portal>
             <Dialog visible={visible} onDismiss={onDismiss} style={styles.dialog}>
                 <Dialog.Title style={styles.title}>Confirm Delete?</Dialog.Title>
                 <Dialog.Content>
-                    <Text style={styles.message}>Are you sure you want to delete this expense?</Text>
+                    <Text style={styles.message}>{body}</Text>
                 </Dialog.Content>
                 <Dialog.Actions style={styles.actions}>
                     <Button onPress={onDismiss} labelStyle={styles.cancel}>Cancel</Button>

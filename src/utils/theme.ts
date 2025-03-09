@@ -15,4 +15,15 @@ export const theme = {
     secondarySearch: '#49454F',
     secondarySort: "#191919",
   },
+  fonts: {
+    regular: "Montserrat-Regular",
+    bold: "Montserrat-Bold",
+    semiBold: "Montserrat-SemiBold",
+    medium: "Montserrat-Medium",
+    light: "Montserrat-Light",
+    thin: "Montserrat-Thin",
+    italic: "Montserrat-Italic",
+    extraBold: "Montserrat-ExtraBold",
+    black: "Montserrat-Black",
+  },
 } as const;
