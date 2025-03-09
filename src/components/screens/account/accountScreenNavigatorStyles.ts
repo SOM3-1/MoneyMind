@@ -15,7 +15,6 @@ export const accountScreenNavigatorStyles = StyleSheet.create({
     fontFamily: "Montserrat-Bold",
     lineHeight: 32.2,
     color: theme.colors.darkText
-    
   },
   menuSubtitle: {
     fontFamily: "Montserrat-Regular",

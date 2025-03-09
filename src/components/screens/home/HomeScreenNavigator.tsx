@@ -18,6 +18,7 @@ export const HomeScreenNavigator: React.FC = () => {
       <Stack.Screen
         name="EditTransactions"
         component={EditTransactions}
+        initialParams={{ transaction: null }}
       />
     </Stack.Navigator>
   );

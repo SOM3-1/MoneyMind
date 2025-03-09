@@ -11,6 +11,8 @@ export const theme = {
     disabled: '#6c757d',
     subtitle:'#616161',
     shadesOfGray: '#333333',
-    darkText: '#212121'
+    darkText: '#212121',
+    secondarySearch: '#49454F',
+    secondarySort: "#191919",
   },
 } as const;

@@ -12,7 +12,8 @@ interface CustomTextInputProps {
   secureTextEntry?: boolean;
   keyboardType?: "default" | "numeric" | "email-address";
   style?: object;
-  onBlur?: () => void
+  onBlur?: () => void,
+  editable? : boolean
 }
 
 const CustomTextInput: React.FC<CustomTextInputProps> = ({
@@ -23,6 +24,7 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
   secureTextEntry = false,
   keyboardType = "default",
   style = {},
+  editable = true,
   onBlur = () => { }
 }) => {
   return (
