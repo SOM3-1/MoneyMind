@@ -25,7 +25,7 @@ export const AnalyticsCard: React.FC<AnalyticsCardProp> = ({ aiAnalytics }) => {
         <Card
           style={[aiScreenStyles.card, { backgroundColor: theme.colors.card1 }]}
         >
-          <Card.Content>
+          <Card.Content style={aiScreenStyles.cardContent}>
             <Text style={aiScreenStyles.cardTitle}>Total Expenses</Text>
             <Text style={aiScreenStyles.cardSubTitle}>
               ${aiAnalytics.total_expenses}
@@ -36,7 +36,7 @@ export const AnalyticsCard: React.FC<AnalyticsCardProp> = ({ aiAnalytics }) => {
         <Card
           style={[aiScreenStyles.card, { backgroundColor: theme.colors.card2 }]}
         >
-          <Card.Content>
+          <Card.Content style={aiScreenStyles.cardContent}>
             <Text style={aiScreenStyles.cardTitle}>Exceeded Budget</Text>
             <Text style={aiScreenStyles.cardSubTitle}>
               {aiAnalytics.exceeded_budget} times
@@ -48,13 +48,13 @@ export const AnalyticsCard: React.FC<AnalyticsCardProp> = ({ aiAnalytics }) => {
         <Card
           style={[aiScreenStyles.card, { backgroundColor: theme.colors.card3 }]}
         >
-          <Card.Content>
+          <Card.Content style={aiScreenStyles.cardContent}>
             <Text style={aiScreenStyles.cardTitle}>Savings</Text>
             <Text style={aiScreenStyles.cardSubTitle}>
               ${aiAnalytics.savings.amount}
             </Text>
             <Text style={aiScreenStyles.cardTitle}>
-              +{aiAnalytics.savings.percentage}
+              {`${aiAnalytics.savings.percentage.length > 0 ? "+" : '-'} ${aiAnalytics.savings.percentage} `}
             </Text>
             <Icons />
           </Card.Content>
@@ -62,13 +62,13 @@ export const AnalyticsCard: React.FC<AnalyticsCardProp> = ({ aiAnalytics }) => {
         <Card
           style={[aiScreenStyles.card, { backgroundColor: theme.colors.card4 }]}
         >
-          <Card.Content>
+          <Card.Content style={aiScreenStyles.cardContent}>
             <Text style={aiScreenStyles.cardTitle}>Budget Utilization</Text>
             <Text style={aiScreenStyles.cardSubTitle}>
               {aiAnalytics.budget_utilization.percentage}
             </Text>
             <Text style={aiScreenStyles.cardTitle}>
-              +{aiAnalytics.budget_utilization.change}
+                {`${aiAnalytics.budget_utilization.change.length > 0 ? '+' : '-'} ${aiAnalytics.budget_utilization.change}`}
             </Text>
           </Card.Content>
         </Card>

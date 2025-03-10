@@ -61,13 +61,16 @@ export const aiScreenStyles = StyleSheet.create({
     justifyContent: "space-evenly",
     gap: 16,
     marginBottom: 10,
-    height: 94,
   },
   card: {
     flex: 1,
     borderRadius: 10,
     alignSelf: "flex-start",
-    height: 94,
+    height: 104,
+    flexDirection:'column'
+  },
+  cardContent: {
+    gap: 4
   },
   cardAmount: {
     color: "#fff",
@@ -107,4 +110,26 @@ export const aiScreenStyles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  dropDownContainer: {
+    marginBottom: 10,
+    width: "100%",
+    zIndex: 1000, 
+    height: 36
+  },
+  dropdown: {
+    backgroundColor: theme.colors.background,
+    borderColor: theme.colors.primary,
+    minHeight: 40,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+  },
+  dropdownMenu: {
+    backgroundColor: theme.colors.white,
+    borderColor: theme.colors.primary,
+  },
+  dropDownText: {
+    fontSize: 14,
+    fontFamily: theme.fonts.regular,
+    color: theme.colors.darkText
+  }
 });

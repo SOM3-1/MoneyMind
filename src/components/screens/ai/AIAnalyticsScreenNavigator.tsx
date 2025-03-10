@@ -14,6 +14,7 @@ import AIDateRangeDropdown from "./AIDateRangeDropdown";
 import { Intro } from "./Intro";
 import { aiScreenStyles } from "./aiScreenStyles";
 import { CustomActivityIndicator } from "@components/reusable/CustomActivityIndicator";
+import { theme } from "src/utils/theme";
 
 export const AIAnalyticsScreenNavigator: React.FC = () => {
   const [aiAnalytics, setAiAnalytics] = useState<AIFinancialAnalysis | null>(
@@ -70,7 +71,7 @@ export const AIAnalyticsScreenNavigator: React.FC = () => {
   if (loading) return <CustomActivityIndicator />;
 
   return (
-    <View style={aiScreenStyles.container}>
+    <View style={{...aiScreenStyles.container, backgroundColor: !aiAnalytics ? theme.colors.white  : theme.colors.background}}>
       <View style={aiScreenStyles.contentContainer}>
         <Intro />
 

@@ -76,7 +76,7 @@ export const BudgetItem: React.FC<{ budget: Budget }> = ({ budget }) => {
 
 const styles = StyleSheet.create({
     card: {
-        backgroundColor: "white",
+        backgroundColor: theme.colors.background,
         borderRadius: 7,
         padding: 15,
         marginBottom: 10,

@@ -1,10 +1,9 @@
 import { EmptyData } from "@components/reusable/EmptyData"
 import { Intro } from "@components/reusable/Intro"
 import React, { useCallback, useEffect, useState } from "react"
-import { ActivityIndicator, View } from "react-native"
+import { View } from "react-native"
 import { homeScreenStyles } from "../home/homeScreenStyles"
 import { BudgetLink } from "./BudgetLink"
-import { Transaction } from "@ourtypes/Transaction"
 import { onAuthStateChanged } from "@react-native-firebase/auth"
 import { useFocusEffect } from "@react-navigation/native"
 import { auth } from "../../../../firebaseConfig"
@@ -17,7 +16,7 @@ import { ScreenType } from "@ourtypes/ScreenType"
 import { CustomActivityIndicator } from "@components/reusable/CustomActivityIndicator"
 
 export const BudgetScreen: React.FC = () => {
-  const [budget, setbudgets] = useState<Budget[]>([]);
+  const [budgets, setBudgets] = useState<Budget[]>([]);
   const [filteredBudgets, setFilteredBudgets] = useState<Budget[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -26,7 +25,7 @@ export const BudgetScreen: React.FC = () => {
   const fetchbudgets = async () => {
     try {
       const data = await getUserBudgetTransactions();
-      setbudgets(data);
+      setBudgets(data);
       setFilteredBudgets(data);
     } catch (error) {
       console.error(error);
@@ -67,15 +66,14 @@ export const BudgetScreen: React.FC = () => {
   if (loading) return <CustomActivityIndicator />;
 
   return (
-    <View style={homeScreenStyles.container}>
+    <View style={{...homeScreenStyles.container,backgroundColor: budgets.length ? theme.colors.background : theme.colors.white}}>
       <View style={homeScreenStyles.homeConatiner}>
         <Intro />
-
-        {budget.length === 0 ? (
+        {budgets.length === 0 ? (
           <EmptyData type={ScreenType.BUDGET} />
         ) : (
           <View style={{ width: '100%', gap: 10 }}>
-            <SearchSortControls budgets={budget} onUpdate={handleSearchAndSort} />
+            <SearchSortControls budgets={budgets} onUpdate={handleSearchAndSort} />
             <BudgetScreenData budgets={filteredBudgets} onRefresh={onRefresh} refreshing={refreshing} />
           </View>
         )}

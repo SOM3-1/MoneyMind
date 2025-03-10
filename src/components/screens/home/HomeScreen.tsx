@@ -66,7 +66,7 @@ export const HomeScreen: React.FC = () => {
   if (loading) return <CustomActivityIndicator/>;
 
   return (
-    <View style={homeScreenStyles.container}>
+    <View style={{...homeScreenStyles.container, backgroundColor: transactions.length ? theme.colors.background : theme.colors.white}}>
       <View style={homeScreenStyles.homeConatiner}>
         <Intro />
 

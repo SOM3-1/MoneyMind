@@ -37,7 +37,6 @@ export const getAIFinancialAnalysis = async (
 
     const data: AIFinancialAnalysis = await response.json();
     if ("error" in data) {
-        console.warn("AI Analysis Error:", data.error); 
         return null; 
     }
     return data;

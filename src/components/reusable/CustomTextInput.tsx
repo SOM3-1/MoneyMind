@@ -14,7 +14,7 @@ interface CustomTextInputProps {
   style?: object;
   onBlur?: () => void;
   editable?: boolean;
-  rightIcon?: React.ReactNode; // ✅ Optional right-side icon
+  rightIcon?: React.ReactNode;
 }
 
 const CustomTextInput: React.FC<CustomTextInputProps> = ({
@@ -27,7 +27,7 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
   style = {},
   editable = true,
   onBlur = () => {},
-  rightIcon = null, // Default to null (optional)
+  rightIcon = null, 
 }) => {
   return (
     <View style={[styles.container, style]}>
@@ -42,14 +42,17 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
         style={styles.input}
         onBlur={onBlur}
         editable={editable}
-        right={rightIcon ? <TextInput.Icon icon={() => rightIcon} /> : null} // ✅ Conditionally render the icon
+        right={rightIcon ? <TextInput.Icon icon={() => rightIcon} /> : null}
         theme={{
           colors: {
             primary: theme.colors.subtitle,
-            background: theme.colors.white,
-            text: theme.colors.subtitle,
+            background: theme.colors.background,
+            text: theme.colors.darkText,
           },
         }}
+        contentStyle={{fontFamily: theme.fonts.regular,
+          fontSize: 14,
+          color: theme.colors.darkText,}}
       />
     </View>
   );
@@ -62,14 +65,12 @@ const styles = StyleSheet.create({
   input: {
     fontFamily: theme.fonts.bold,
     fontSize: getFontSize(14),
-    color: theme.colors.subtitle,
-    fontWeight: "600",
+    color: theme.colors.darkText,
     height: 56,
   },
   labelStyle: {
-    color: theme.colors.subtitle,
-    fontWeight: "100",
-    fontFamily: theme.fonts.regular,
+    color: theme.colors.darkText,
+    fontFamily: theme.fonts.bold,
   },
 });
 

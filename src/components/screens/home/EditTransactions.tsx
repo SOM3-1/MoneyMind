@@ -8,7 +8,7 @@ import CustomTextInput from "@components/reusable/CustomTextInput";
 import { Transaction } from "@ourtypes/Transaction";
 import { CATEGORY_OPTIONS, CategoryType } from "@ourtypes/Category";
 import { DateTime } from "luxon";
-import { Dropdown } from "react-native-paper-dropdown";
+import DropDownPicker from "react-native-dropdown-picker";
 import { theme } from "src/utils/theme";
 import ConfirmDeleteDialog from "@components/reusable/ConfirmDeleteDialog";
 import { registrationStyles } from "@components/auth/registrationStyles";
@@ -16,6 +16,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { CustomActivityIndicator } from "@components/reusable/CustomActivityIndicator";
 import { ScreenType } from "@ourtypes/ScreenType";
 import { commonStyles } from "@components/reusable/commonStyles";
+import { aiScreenStyles } from "../ai/aiScreenStyles";
 
 type EditTransactionRouteProp = RouteProp<{ EditTransactions: { transaction?: Transaction } }, "EditTransactions">;
 
@@ -26,7 +27,8 @@ export const EditTransactions: React.FC = () => {
     const transactionId = transaction?.id || "";
     const formattedDate = DateTime.fromISO(transaction?.date || '').toFormat("MM/dd/yyyy");
     const [deleteDialogVisible, setDeleteDialogVisible] = useState(false);
-    const [isProcessing, setIsProcessing] = useState(false)
+    const [isProcessing, setIsProcessing] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const [category, setCategory] = useState<CategoryType>(transaction?.category as CategoryType || "Other");
 
@@ -89,18 +91,22 @@ export const EditTransactions: React.FC = () => {
             <View style={{ gap: 30, marginTop: 40 }}><CustomTextInput label="Amount" value={`$ ${transaction.amount.toFixed(2)}`} editable={false} />
 
                 <CustomTextInput label="Description" value={transaction.description} editable={false} />
-
-                <Dropdown
-                    label="Category"
-                    mode="outlined"
+                <DropDownPicker
+                    open={open}
                     value={category}
-                    onSelect={(value) => setCategory(value as CategoryType)}
-                    options={CATEGORY_OPTIONS}
-                    placeholder="Select Category"
-                    error={false}
-                    disabled={false}
-                    menuContentStyle={commonStyles.dropdownMenu}
-                    hideMenuHeader={true}
+                    setOpen={setOpen}
+                    setValue={(callback) => {
+                        const newValue = typeof callback === "function" ? callback(category) : callback;
+                        setCategory(newValue as CategoryType);
+                    }}
+                    items={CATEGORY_OPTIONS}
+                    style={{...aiScreenStyles.dropdown, height: 56}}
+                    dropDownContainerStyle={aiScreenStyles.dropdownMenu}
+                    textStyle={aiScreenStyles.dropDownText}
+                    placeholder=""
+                    showArrowIcon={true}
+                    showTickIcon={false}
+                    listMode="SCROLLVIEW"
                 />
                 <CustomTextInput label="Date" value={formattedDate} editable={false}
                     rightIcon={
