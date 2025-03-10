@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   input: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: theme.fonts.bold,
     fontSize: getFontSize(14),
     color: theme.colors.subtitle,
     fontWeight: "600",

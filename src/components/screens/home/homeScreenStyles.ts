@@ -35,11 +35,12 @@ export const homeScreenStyles = StyleSheet.create({
         height: 237,
         width: 315,
         alignContent: 'center',
-        flex: 1
+        flex: 1,
+        alignSelf:'center',
     },
     container: {
         flex: 1,
-        backgroundColor: theme.colors.white
+        backgroundColor: theme.colors.background
     },
     image: {
         width: 185,
@@ -47,7 +48,6 @@ export const homeScreenStyles = StyleSheet.create({
         marginBottom: 20,
         justifyContent: 'center',
         alignSelf: 'center',
-        color: 'red'
     },
     fab: {
         width: 70,

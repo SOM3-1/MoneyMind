@@ -36,11 +36,11 @@ const styles = StyleSheet.create({
   },
   dropdown: {
     width: 354,
-    backgroundColor: theme.colors.white,
+    backgroundColor: theme.colors.background,
     height: 36,
   },
   dropdownMenu: {
-    backgroundColor: theme.colors.white,
+    backgroundColor: theme.colors.background,
     width: 354,
   },
 });

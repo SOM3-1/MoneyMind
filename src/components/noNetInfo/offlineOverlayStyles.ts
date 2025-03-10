@@ -8,7 +8,7 @@ export const offlineOverlayStyles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: theme.colors.white,
+        backgroundColor: theme.colors.background,
         justifyContent: 'center',
         alignItems: 'center',
         zIndex: 1000,

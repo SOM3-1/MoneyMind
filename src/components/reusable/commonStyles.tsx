@@ -5,7 +5,7 @@ export const commonStyles = StyleSheet.create({
     container: {
         padding: 20,
         flex: 1,
-        backgroundColor: theme.colors.white,
+        backgroundColor: theme.colors.background,
     },
     header: {
         fontSize: 19,
@@ -68,7 +68,7 @@ export const commonStyles = StyleSheet.create({
         marginTop: 20,
     },
     dropdown: {
-        backgroundColor: theme.colors.white,
+        backgroundColor: theme.colors.background,
         borderColor: "gray",
         borderWidth: 1,
         borderRadius: 8,
@@ -76,7 +76,7 @@ export const commonStyles = StyleSheet.create({
         paddingHorizontal: 15,
     },
     dropdownMenu: {
-        backgroundColor: theme.colors.white,
+        backgroundColor: theme.colors.background,
         paddingVertical: 10,
         paddingHorizontal: 15,
         borderRadius: 8,
@@ -92,7 +92,7 @@ export const commonStyles = StyleSheet.create({
         borderRadius: 8,
         borderWidth: 1,
         borderColor: "gray",
-        backgroundColor: theme.colors.white,
+        backgroundColor: theme.colors.background,
     },
     buttonContainer: {
         position: "absolute",

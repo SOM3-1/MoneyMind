@@ -10,7 +10,7 @@ import { auth } from "../../firebaseConfig";
  */
 export const getAIFinancialAnalysis = async (
   dateRange: DateRange = "this_month"
-): Promise<AIFinancialAnalysis> => {
+): Promise<AIFinancialAnalysis | null> => {
   try {
     if (!AI_URL) throw new Error("AI_URL is not defined in environment variables");
 
@@ -36,6 +36,10 @@ export const getAIFinancialAnalysis = async (
     }
 
     const data: AIFinancialAnalysis = await response.json();
+    if ("error" in data) {
+        console.warn("AI Analysis Error:", data.error); 
+        return null; 
+    }
     return data;
   } catch (error) {
     console.error("Error fetching AI financial analysis:", error);

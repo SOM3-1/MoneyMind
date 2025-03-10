@@ -27,6 +27,7 @@ export const AIAnalyticsScreenNavigator: React.FC = () => {
     try {
       setLoading(true);
       const data = await getAIFinancialAnalysis(selectedRange);
+      console.log(data)
       setAiAnalytics(data);
     } catch (error) {
       console.error("Error fetching AI analytics:", error);

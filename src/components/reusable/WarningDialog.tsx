@@ -1,28 +1,24 @@
-import { ScreenType } from "@ourtypes/ScreenType";
 import React from "react";
 import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import { Dialog, Portal, Button, Text } from "react-native-paper";
 import { theme } from "src/utils/theme";
 
-interface ConfirmDeleteDialogProps {
+interface WarningDialogProps {
     visible: boolean;
     onDismiss: () => void;
-    onConfirm: () => void;
-    type: ScreenType;
+    message: string;
 }
 
-export const ConfirmDeleteDialog: React.FC<ConfirmDeleteDialogProps> = ({ visible, onDismiss, onConfirm, type }) => {
-    const body:string = `Are you sure you want to delete this ${type === ScreenType.TRANSACTIONS ? 'expense' :'budget'}?`
+export const WarningDialog: React.FC<WarningDialogProps> = ({ visible, onDismiss, message }) => {
     return (
         <Portal>
             <Dialog visible={visible} onDismiss={onDismiss} style={styles.dialog}>
-                <Dialog.Title style={styles.title}>Confirm Delete?</Dialog.Title>
+                <Dialog.Title style={styles.title}>Warning</Dialog.Title>
                 <Dialog.Content>
-                    <Text style={styles.message}>{body}</Text>
+                    <Text style={styles.message}>{message}</Text>
                 </Dialog.Content>
                 <Dialog.Actions style={styles.actions}>
-                    <Button onPress={onDismiss} labelStyle={styles.cancel}>Cancel</Button>
-                    <View style={styles.deleteButton}><TouchableWithoutFeedback onPress={onConfirm} ><Text style={styles.confirm}>Yes, Delete</Text></TouchableWithoutFeedback></View>
+                    <Button onPress={onDismiss} labelStyle={styles.cancel}>Close</Button>
                 </Dialog.Actions>
             </Dialog>
         </Portal>
@@ -50,7 +46,7 @@ const styles = StyleSheet.create({
     },
     actions: {
         flexDirection: "row",
-        justifyContent: "space-between", 
+        justifyContent: "flex-end", 
         width: "100%",
         paddingHorizontal: 16,
         paddingBottom: 10,
@@ -67,7 +63,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontFamily: "Montserrat-Bold",
         lineHeight: 22.4,
-        color: theme.colors.active
+        color: theme.colors.darkText
     },
     confirm:{
         fontSize: 16,
@@ -77,4 +73,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ConfirmDeleteDialog;
+export default WarningDialog;

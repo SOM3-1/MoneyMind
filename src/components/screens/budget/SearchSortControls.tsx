@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     width: 116,
     height: 42,
     justifyContent: "center",
-    backgroundColor: theme.colors.white,
+    backgroundColor: theme.colors.background,
   },
   sortButtonContent: {
     flexDirection: "row",
