@@ -54,7 +54,7 @@ export const AnalyticsCard: React.FC<AnalyticsCardProp> = ({ aiAnalytics }) => {
               ${aiAnalytics.savings.amount}
             </Text>
             <Text style={aiScreenStyles.cardTitle}>
-              {`${aiAnalytics.savings.percentage.length > 0 ? "+" : '-'} ${aiAnalytics.savings.percentage} `}
+              {aiAnalytics.savings.percentage}
             </Text>
             <Icons />
           </Card.Content>
@@ -68,7 +68,7 @@ export const AnalyticsCard: React.FC<AnalyticsCardProp> = ({ aiAnalytics }) => {
               {aiAnalytics.budget_utilization.percentage}
             </Text>
             <Text style={aiScreenStyles.cardTitle}>
-                {`${aiAnalytics.budget_utilization.change.length > 0 ? '+' : '-'} ${aiAnalytics.budget_utilization.change}`}
+                {aiAnalytics.budget_utilization.change}
             </Text>
           </Card.Content>
         </Card>
