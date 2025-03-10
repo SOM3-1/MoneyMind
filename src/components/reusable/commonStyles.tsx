@@ -95,11 +95,11 @@ export const commonStyles = StyleSheet.create({
         backgroundColor: theme.colors.background,
     },
     buttonContainer: {
-        position: "absolute",
-        bottom: 40,
-        width: '100%',
+        flex: 1,
+        justifyContent: "flex-end",
+        paddingBottom: 20,
         height: 50,
-        alignSelf:'center',
+        alignSelf: "stretch",
     },
     button: {
         backgroundColor: theme.colors.active,
