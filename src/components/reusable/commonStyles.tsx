@@ -15,7 +15,8 @@ export const commonStyles = StyleSheet.create({
     },
     label: {
         fontSize: 14,
-        color: "gray",
+        fontFamily: theme.fonts.regular,
+        color: theme.colors.subtitle,
         marginBottom: 5,
     },
     dropdownButton: {

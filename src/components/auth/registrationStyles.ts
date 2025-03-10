@@ -42,8 +42,8 @@ export const registrationStyles = StyleSheet.create({
     backgroundColor: theme.colors.disabled,
   },
   buttonText: {
-    fontFamily: "Montserrat-Bold",
-    lineHeight: 26,
+    fontFamily: theme.fonts.bold,
+    lineHeight: 26.6,
     fontSize: getFontSize(19),
     color: theme.colors.white,
   },

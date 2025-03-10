@@ -60,7 +60,7 @@ export const SearchSortControls: React.FC<Props> = ({ transactions, onUpdate }) 
         anchor={
           <Button mode="outlined" onPress={() => setMenuVisible(true)} style={styles.sortButton}>
             <View style={styles.sortButtonContent}>
-              <MaterialIcons name="sort" size={20} color={theme.colors.darkText} />
+              <MaterialIcons name="sort" size={20} color={theme.colors.darkText} style={styles.searchIcon}/>
               <Text style={styles.sortText}>
                 {sortOption === "date" ? "Date" : "Amount"}
               </Text>

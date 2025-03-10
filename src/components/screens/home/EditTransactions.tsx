@@ -100,6 +100,7 @@ export const EditTransactions: React.FC = () => {
                     error={false}
                     disabled={false}
                     menuContentStyle={commonStyles.dropdownMenu}
+                    hideMenuHeader={true}
                 />
                 <CustomTextInput label="Date" value={formattedDate} editable={false}
                     rightIcon={

@@ -5,7 +5,7 @@ import { theme } from "src/utils/theme";
 export const CustomActivityIndicator = () => {
   return (
     <View style={style.loaderOverlay}>
-      <ActivityIndicator color={theme.colors.active} size={50} />
+      <ActivityIndicator color={theme.colors.primary} size={50} />
     </View>
   );
 };

@@ -10,18 +10,20 @@ import { ParamListBase, useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { theme } from "src/utils/theme";
 
+const size: number = 16
+
 const getCategoryIcon = (category: string) => {
   switch (category) {
     case "Essentials":
-      return <FontAwesome name="shopping-cart" size={16} color="black" />;
+      return <FontAwesome name="shopping-cart" size={size} color={theme.colors.iconColor} />;
     case "Food & Entertainment":
-      return <FontAwesome5 name="utensils" size={16} color="black" />;
+      return <FontAwesome5 name="utensils" size={size} color={theme.colors.iconColor}/>;
     case "Shopping":
-      return <FontAwesome5 name="shopping-bag" size={16} color="black" />;
+      return <FontAwesome5 name="shopping-bag" size={size} color={theme.colors.iconColor}/>;
     case "Health & Wellness":
-      return <FontAwesome name="heartbeat" size={16} color="black" />;
+      return <FontAwesome name="heartbeat" size={size} color={theme.colors.iconColor} />;
     default:
-      return <FontAwesome5 name="ellipsis-h" size={16} color="black" />;
+      return <FontAwesome5 name="ellipsis-h" size={size} color={theme.colors.iconColor}/>;
   }
 };
 

@@ -13,6 +13,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import {auth} from "./../../../../firebaseConfig"
 import { useFocusEffect } from "@react-navigation/native";
 import { ScreenType } from "@ourtypes/ScreenType";
+import { CustomActivityIndicator } from "@components/reusable/CustomActivityIndicator";
 
 export const HomeScreen: React.FC = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -62,7 +63,7 @@ export const HomeScreen: React.FC = () => {
     setFilteredTransactions(updatedTransactions);
   };
 
-  if (loading) return <ActivityIndicator size="large" color={theme.colors.primary} />;
+  if (loading) return <CustomActivityIndicator/>;
 
   return (
     <View style={homeScreenStyles.container}>

@@ -14,6 +14,7 @@ import { BudgetScreenData } from "./BudgetScreenData"
 import { Budget } from "@ourtypes/Budget"
 import SearchSortControls from "./SearchSortControls"
 import { ScreenType } from "@ourtypes/ScreenType"
+import { CustomActivityIndicator } from "@components/reusable/CustomActivityIndicator"
 
 export const BudgetScreen: React.FC = () => {
   const [budget, setbudgets] = useState<Budget[]>([]);
@@ -63,7 +64,7 @@ export const BudgetScreen: React.FC = () => {
     setFilteredBudgets(updatedBudgets);
   };
 
-  if (loading) return <ActivityIndicator size="large" color={theme.colors.primary} />;
+  if (loading) return <CustomActivityIndicator />;
 
   return (
     <View style={homeScreenStyles.container}>

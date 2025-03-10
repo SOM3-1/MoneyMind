@@ -15,7 +15,12 @@ const content: Record<ScreenType, { title: string; message1: string; message2: s
         title: "No Budgets Set",
         message1: "Your budget plans will appear here.",
         message2: "Tap the button below to get started."
-    }
+    },
+    [ScreenType.AI]: {
+        title: "No Predictions Yet",
+        message1: "Your financial insights will appear here.",
+        message2: ""
+    },
 };
 
 export const EmptyData: React.FC<{ type: ScreenType }> = ({ type }) => {
@@ -30,8 +35,8 @@ export const EmptyData: React.FC<{ type: ScreenType }> = ({ type }) => {
                 resizeMode={FastImage.resizeMode.contain}
             />
             <View>
-                <Text style={homeScreenStyles.body}>{message1}</Text>
-                <Text style={homeScreenStyles.body}>{message2}</Text>
+                {message1 && <Text style={homeScreenStyles.body}>{message1}</Text>}
+                {message2 && <Text style={homeScreenStyles.body}>{message2}</Text>}
             </View>
         </View>
     );

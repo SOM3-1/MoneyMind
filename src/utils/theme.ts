@@ -14,6 +14,12 @@ export const theme = {
     darkText: '#212121',
     secondarySearch: '#49454F',
     secondarySort: "#191919",
+    card1: "#5A9BCF",
+    card2: "#5A75CF",
+    card3: "#2D8AB5",
+    card4: "#32ADE6",
+    iconColor: '#1C1B1F',
+    price:"#0D47A1"
   },
   fonts: {
     regular: "Montserrat-Regular",

@@ -72,7 +72,7 @@ export const homeScreenStyles = StyleSheet.create({
     },
     sectionTitle: {
         fontSize: 16,
-        fontFamily: 'Montserrat-Bold',
+        fontFamily: theme.fonts.bold,
         lineHeight: 22.4,
         color: theme.colors.darkText,
         textAlign: 'left'
@@ -114,7 +114,7 @@ export const homeScreenStyles = StyleSheet.create({
     },
     transactionTitle: {
         fontSize: 16,
-        fontFamily: 'Montserrat-Bold',
+        fontFamily: theme.fonts.bold,
         lineHeight: 22.4,
         color: theme.colors.darkText,
     },
@@ -129,7 +129,7 @@ export const homeScreenStyles = StyleSheet.create({
     },
     categoryText: {
         fontSize: 16,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: theme.fonts.regular,
         lineHeight: 25.6,
         color: theme.colors.darkText,
     },
@@ -139,8 +139,9 @@ export const homeScreenStyles = StyleSheet.create({
     },
     amountText: {
         fontSize: 16,
-        fontWeight: "bold",
-        color: "#0D47A1",
+        fontFamily: theme.fonts.bold,
+        color: theme.colors.price,
+        lineHeight:26.6
     },
     noTransactions: {
         justifyContent: 'center',
