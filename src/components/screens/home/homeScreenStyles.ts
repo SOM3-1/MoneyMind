@@ -117,6 +117,7 @@ export const homeScreenStyles = StyleSheet.create({
         fontFamily: theme.fonts.bold,
         lineHeight: 22.4,
         color: theme.colors.darkText,
+        width: '90%'
     },
     categoryContainer: {
         flexDirection: "row",

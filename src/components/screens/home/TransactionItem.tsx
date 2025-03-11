@@ -44,7 +44,7 @@ export const TransactionItem: React.FC<{ transaction: Transaction }> = ({ transa
       </View>
 
       <View style={homeScreenStyles.transactionDetails}>
-        <Text style={homeScreenStyles.transactionTitle}>{transaction.description}</Text>
+        <Text style={homeScreenStyles.transactionTitle} numberOfLines={1}>{transaction.description}</Text>
         <View style={homeScreenStyles.categoryContainer}>
           {getCategoryIcon(transaction.category)}
           <Text style={homeScreenStyles.categoryText}> {transaction.category}</Text>

@@ -44,7 +44,7 @@ export const BudgetItem: React.FC<{ budget: Budget }> = ({ budget }) => {
     return (
         <View style={budgetScreenStyles.card}>
             <View style={budgetScreenStyles.header}>
-                <Text style={budgetScreenStyles.title}>{budget.title}</Text>
+                <Text style={budgetScreenStyles.title} numberOfLines={1}>{budget.title}</Text>
                 <Text style={budgetScreenStyles.amount}>${budget.amount.toFixed(2)}</Text>
             </View>
 

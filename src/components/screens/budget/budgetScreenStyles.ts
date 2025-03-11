@@ -25,6 +25,7 @@ export const budgetScreenStyles = StyleSheet.create({
         fontFamily: theme.fonts.bold,
         lineHeight: 22.4,
         color: theme.colors.darkText,
+        width: '90%'
     },
     amount: {
         fontSize: 19,
