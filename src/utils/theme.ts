@@ -19,7 +19,14 @@ export const theme = {
     card3: "#2D8AB5",
     card4: "#32ADE6",
     iconColor: '#1C1B1F',
-    price:"#0D47A1"
+    price:"#0D47A1",
+    remaining: '#81B683',
+    essentials:'#FF9800',
+    food: '#CB1D63',
+    shopping: '#12568E',
+    health:  '#00EEFF',
+    other: '#AAAAAA'
+
   },
   fonts: {
     regular: "Montserrat-Regular",

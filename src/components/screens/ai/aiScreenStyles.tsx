@@ -124,7 +124,7 @@ export const aiScreenStyles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   dropdownMenu: {
-    backgroundColor: theme.colors.white,
+    backgroundColor: theme.colors.background,
     borderColor: theme.colors.primary,
   },
   dropDownText: {

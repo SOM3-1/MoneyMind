@@ -67,3 +67,8 @@ export const getUserName = async ():Promise<string> => {
     });
   });
 };
+
+export const getUserId = async (): Promise<string | null> => {
+  const currentUser = auth.currentUser;
+  return currentUser ? currentUser.uid : null;
+};

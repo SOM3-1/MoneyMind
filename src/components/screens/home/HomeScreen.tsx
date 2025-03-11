@@ -24,6 +24,7 @@ export const HomeScreen: React.FC = () => {
 
   const fetchTransactions = async () => {
     try {
+      setLoading(true);
       const data = await getUserTransactions();
       setTransactions(data);
       setFilteredTransactions(data);
@@ -37,9 +38,12 @@ export const HomeScreen: React.FC = () => {
 
   useFocusEffect(
     useCallback(() => {
-      fetchTransactions();
-    }, [])
+      if (userLoaded) {
+        fetchTransactions();
+      }
+    }, [userLoaded])
   );
+  
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -55,7 +59,6 @@ export const HomeScreen: React.FC = () => {
   }, []);
 
   const onRefresh = () => {
-    setRefreshing(true);
     fetchTransactions();
   };
 
@@ -79,7 +82,7 @@ export const HomeScreen: React.FC = () => {
           </View>
         )}
       </View>
-      <LinkTransactions />
+      <LinkTransactions onRefresh={onRefresh}/>
     </View>
   );
 };

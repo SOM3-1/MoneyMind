@@ -7,17 +7,17 @@ import { DateTime } from "luxon";
 import { ParamListBase, useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-
 const CATEGORY_COLORS: Record<string, string> = {
-    "Essentials": "#FFAA00",
-    "Food & Entertainment": "#D11F4E",
-    "Shopping": "#0047AB",
-    "Health & Wellness": "#2CCCE4",
-    "Other": "#AAAAAA",
-    "Remaining": "#5DAE55",
+    "Essentials": theme.colors.essentials,
+    "Food & Entertainment": theme.colors.food,
+    "Shopping": theme.colors.shopping,
+    "Health & Wellness": theme.colors.health,
+    "Other": theme.colors.other,
+    "Remaining": theme.colors.remaining,
 };
 
 export const BudgetItem: React.FC<{ budget: Budget }> = ({ budget }) => {
+
     const formatDate = (dateString: string) => {
         const date = DateTime.fromISO(dateString);
         const day = date.day;
@@ -28,8 +28,8 @@ export const BudgetItem: React.FC<{ budget: Budget }> = ({ budget }) => {
         return `${day}${suffix} ${date.toFormat("MMM yyyy")}`;
     };
 
-    const totalSpent = Object.values(budget.categoryTotals || {}).reduce((sum, val) => sum + val, 0);
-    const remaining = budget.amount - totalSpent;
+    const totalSpent = parseFloat(Object.values(budget.categoryTotals || {}).reduce((sum, val) => sum + val, 0).toFixed(2));
+    const remaining = parseFloat((budget.amount - totalSpent).toFixed(2));
 
     const categories = Object.entries(budget.categoryTotals || {}).filter(([_, value]) => value > 0);
     const progressValues = [...categories, ["Remaining", remaining]].filter(([_, value]) => value > 0);
