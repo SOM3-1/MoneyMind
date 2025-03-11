@@ -25,7 +25,8 @@ export const theme = {
     food: '#CB1D63',
     shopping: '#12568E',
     health:  '#00EEFF',
-    other: '#AAAAAA'
+    other: '#AAAAAA',
+    warning: '#FF0F0F'
 
   },
   fonts: {
