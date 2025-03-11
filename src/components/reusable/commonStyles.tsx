@@ -10,7 +10,7 @@ export const commonStyles = StyleSheet.create({
     header: {
         fontSize: 19,
         lineHeight: 26.6,
-        fontFamily: 'Montserrat-Bold',
+        fontFamily: theme.fonts.bold,
         color: theme.colors.darkText,
     },
     label: {

@@ -1,3 +1,5 @@
+import { CategoryType } from "./Category";
+
 interface CategoryData {
   [category: string]: number;
 }
@@ -37,7 +39,7 @@ export interface AIFinancialAnalysis {
   abnormal_spending_alerts: string[];
   warnings: string[];
   total_budget: number;
-  categories: CategoryData;
+  categories: Partial<Record<CategoryType, number>>;
 }
 
 export type DateRange =

@@ -72,16 +72,6 @@ export const aiScreenStyles = StyleSheet.create({
   cardContent: {
     gap: 4
   },
-  cardAmount: {
-    color: "#fff",
-    fontWeight: "bold",
-    fontSize: 22,
-  },
-  cardSubAmount: {
-    color: "#fff",
-    fontSize: 14,
-    opacity: 0.8,
-  },
   sectionTitle: {
     fontWeight: "bold",
     fontSize: 16,
@@ -130,6 +120,10 @@ export const aiScreenStyles = StyleSheet.create({
   dropDownText: {
     fontSize: 14,
     fontFamily: theme.fonts.regular,
+    color: theme.colors.darkText,
+    lineHeight: 18.6
+  },
+  barGraphTitle: {
     color: theme.colors.darkText
   }
 });

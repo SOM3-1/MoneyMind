@@ -6,6 +6,7 @@ import { aiScreenStyles } from "./aiScreenStyles";
 import { AnalyticsCard } from "./AnalyticsCard";
 import { AnalyticsSpending } from "./AnalyticsSpending";
 import { WarningDialog } from "@components/reusable/WarningDialog";
+import { AICharts } from "./AICharts";
 
 interface AIScreenDataProps {
     aiAnalytics: AIFinancialAnalysis;
@@ -24,6 +25,7 @@ export const AIScreenData: React.FC<AIScreenDataProps> = ({ aiAnalytics }) => {
             />
             <AnalyticsCard aiAnalytics={aiAnalytics} />
             <AnalyticsSpending aiAnalytics={aiAnalytics} />
+            <AICharts data={aiAnalytics}/>
         </View>
     );
 };
