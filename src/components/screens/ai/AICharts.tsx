@@ -4,8 +4,8 @@ import { theme } from "src/utils/theme";
 import { CategoryType } from "@ourtypes/Category";
 import { FutureExpensesChart } from "./FutureExpensesChart";
 import { CategoryPieChart } from "./CategoryPieChart";
-import { ExportResponse } from "./ExportREsponse";
 import { AIFinancialAnalysis } from "@ourtypes/Ai";
+import { ExportResponse } from "./ExportResponse";
 
 
 interface AIChartsProps {
@@ -47,6 +47,7 @@ export const AICharts: React.FC<AIChartsProps> = ({ data }) => {
                     />
                 </>
             )}
+            <ExportResponse data={data}/>
         </View>
     );
 };
