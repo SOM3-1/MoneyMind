@@ -78,19 +78,21 @@ export const homeScreenStyles = StyleSheet.create({
         textAlign: 'left'
     },
     transactionItem: {
-        width: 364,
+        width: '100%',
         height: 124,
         borderRadius: 7,
         borderWidth: 0.5,
         borderColor: theme.colors.subtitle,
         flexDirection: 'row',
-        padding: 10
+        paddingHorizontal: 10,
+        paddingVertical: 12,
+        gap: 10
     },
     transactionsContainer: {
         gap: 20
     },
     dateContainer: {
-        width: 50,
+        width: 'auto',
         alignItems: "center",
         marginRight: 10,
     },
@@ -110,14 +112,14 @@ export const homeScreenStyles = StyleSheet.create({
     },
     transactionDetails: {
         flex: 1,
-        gap: 10
+        gap: 10,
     },
     transactionTitle: {
         fontSize: 16,
         fontFamily: theme.fonts.bold,
         lineHeight: 22.4,
         color: theme.colors.darkText,
-        width: '90%'
+        flexShrink: 1,
     },
     categoryContainer: {
         flexDirection: "row",

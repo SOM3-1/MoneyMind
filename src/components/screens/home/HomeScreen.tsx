@@ -71,7 +71,7 @@ export const HomeScreen: React.FC = () => {
   return (
     <View style={{...homeScreenStyles.container, backgroundColor: transactions.length ? theme.colors.background : theme.colors.white}}>
       <View style={homeScreenStyles.homeConatiner}>
-        <Intro />
+        <Intro type={ScreenType.TRANSACTIONS}/>
 
         {transactions.length === 0 ? (
           <EmptyData type={ScreenType.TRANSACTIONS} />

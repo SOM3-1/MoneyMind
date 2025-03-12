@@ -39,7 +39,7 @@ export const EditBudget: React.FC = () => {
     const [deleteDialogVisible, setDeleteDialogVisible] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
     const [title, setTitle] = useState(budget?.title || "");
-    const [amount, setAmount] = useState(budget?.amount.toString() || "");
+    const [amount, setAmount] = useState<number>(budget?.amount ? Number(budget.amount) : 0);
 
     const showToast = (message: string) => {
         ToastAndroid.showWithGravity(message, ToastAndroid.SHORT, ToastAndroid.CENTER);
@@ -51,11 +51,11 @@ export const EditBudget: React.FC = () => {
             showToast("Budget data is missing.");
             return;
         }
-
+        const finalAmount = isNaN(amount) ? 0 : amount
         try {
             await updateBudget(budgetId, {
                 title,
-                amount: parseFloat(amount),
+                amount: finalAmount,
                 fromDate: fromDate.toISOString(),
                 toDate: toDate.toISOString(),
             });
@@ -106,9 +106,9 @@ export const EditBudget: React.FC = () => {
 
             <View style={{ gap: 30, marginTop: 40 }}>
                 <CustomTextInput label="Title" value={title} onChangeText={setTitle} editable={true} />
-                <CustomTextInput label="Amount" value={amount} onChangeText={(text) => {
-                    const numericText = text.replace(/[^0-9.]/g, '');
-                    setAmount(numericText);
+                <CustomTextInput label="Amount" value={amount.toString()} onChangeText={(text) => {
+                   const numericValue = parseFloat(text.replace(/[^0-9.]/g, '')) || 0; 
+                   setAmount(numericValue); 
                 }} keyboardType="numeric" />
 
                 <CustomTextInput

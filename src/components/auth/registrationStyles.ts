@@ -110,11 +110,11 @@ export const registrationStyles = StyleSheet.create({
   },
   thirdSection: {
     width: globalWidth,
+    flexGrow: 1, 
+    justifyContent: "flex-end",
+    paddingBottom: 40, 
     gap: 15,
-    height: scale*30,
-    justifyContent:'center',
-    marginBottom: 100
-  },
+  },  
   loggedInContainer: {
     flexDirection: "row",
     alignItems: "center",

@@ -68,7 +68,7 @@ export const BudgetScreen: React.FC = () => {
   return (
     <View style={{...homeScreenStyles.container,backgroundColor: budgets.length ? theme.colors.background : theme.colors.white}}>
       <View style={homeScreenStyles.homeConatiner}>
-        <Intro />
+        <Intro type={ScreenType.BUDGET}/>
         {budgets.length === 0 ? (
           <EmptyData type={ScreenType.BUDGET} />
         ) : (

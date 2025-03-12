@@ -92,6 +92,7 @@ export const aiScreenStyles = StyleSheet.create({
     lineHeight: 26.6,
     fontSize: 18,
     color: theme.colors.primary,
+    textAlign: "right"
   },
   divider: {
     marginVertical: 8,
@@ -99,6 +100,7 @@ export const aiScreenStyles = StyleSheet.create({
   spendingTitleContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
   },
   dropDownContainer: {
     marginBottom: 10,

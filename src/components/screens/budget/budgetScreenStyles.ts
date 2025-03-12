@@ -9,7 +9,7 @@ export const budgetScreenStyles = StyleSheet.create({
         borderRadius: 7,
         padding: 15,
         marginBottom: 10,
-        width: 364,
+        width: '100%',
         height: 'auto',
         borderWidth: 0.5,
         borderColor: theme.colors.subtitle,
@@ -19,19 +19,21 @@ export const budgetScreenStyles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         marginBottom: 5,
+        flex: 1
     },
     title: {
         fontSize: 16,
         fontFamily: theme.fonts.bold,
         lineHeight: 22.4,
         color: theme.colors.darkText,
-        width: '90%'
+        maxWidth: '70%'
     },
     amount: {
         fontSize: 19,
         fontFamily: theme.fonts.bold,
         lineHeight: 26.6,
         color: theme.colors.primary,
+        flexShrink: 0,
     },
     dateRange: {
         fontSize: 16,

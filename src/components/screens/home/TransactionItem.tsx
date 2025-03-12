@@ -52,7 +52,7 @@ export const TransactionItem: React.FC<{ transaction: Transaction }> = ({ transa
       </View>
 
       <View style={homeScreenStyles.amountContainer}>
-        <Text style={homeScreenStyles.amountText}>${transaction.amount.toFixed(2)}</Text>
+        <Text style={homeScreenStyles.amountText}>${transaction.amount}</Text>
         <TouchableOpacity onPress={handleEdit} style={{width: 30, height: 30}}>
           <MaterialCommunityIcons name="pencil-outline" size={24} color={theme.colors.subtitle} /></TouchableOpacity>
       </View>

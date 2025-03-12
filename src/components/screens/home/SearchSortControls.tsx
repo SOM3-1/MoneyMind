@@ -89,9 +89,11 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     borderWidth: 0.5,
     borderColor: theme.colors.subtitle,
-    width: 232,
+    flex: 1,
     height: 42,
     paddingHorizontal: 12,
+    minWidth: 150,
+    maxWidth: "65%",
   },
   searchIcon: {
     marginRight: 8,
@@ -109,10 +111,11 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: theme.colors.subtitle,
     borderRadius: 8,
-    width: 116,
     height: 42,
     paddingHorizontal: 0,
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
+    minWidth: 100, 
+    maxWidth: "30%"
   },
   sortButtonContent: {
     flexDirection: "row",
