@@ -1,6 +1,6 @@
 import { API_URL } from "@env";
 import { auth } from "./../../firebaseConfig"
-import { onAuthStateChanged } from "firebase/auth";
+import { deleteUser, onAuthStateChanged, reauthenticateWithCredential } from "firebase/auth";
 
 export const getUserDetails = async () => {
   return new Promise((resolve, reject) => {
@@ -70,4 +70,34 @@ export const getUserName = async ():Promise<string> => {
 export const getUserId = async (): Promise<string | null> => {
   const currentUser = auth.currentUser;
   return currentUser ? currentUser.uid : null;
+};
+/**
+ * Deletes the user from Firebase Authentication and backend Firestore database.
+ * @returns {Promise<string>} Success message or error
+ */
+export const deleteUserAccount = async (): Promise<string> => {
+  const user = auth.currentUser;
+  
+  if (!user) {
+    throw new Error("User not authenticated");
+  }
+
+  try {
+    // Call backend API to delete user
+    const response = await fetch(`${API_URL}/users/${user.uid}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Failed to delete user from backend");
+    }
+
+    // Do not call deleteUser(user) in frontend
+    return "Account deleted successfully";
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
+    throw new Error(errorMessage || "Failed to delete account");
+  }
 };

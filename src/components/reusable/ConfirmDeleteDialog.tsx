@@ -9,10 +9,11 @@ interface ConfirmDeleteDialogProps {
     onDismiss: () => void;
     onConfirm: () => void;
     type: ScreenType;
+    message ?: string
 }
 
-export const ConfirmDeleteDialog: React.FC<ConfirmDeleteDialogProps> = ({ visible, onDismiss, onConfirm, type }) => {
-    const body:string = `Are you sure you want to delete this ${type === ScreenType.TRANSACTIONS ? 'expense' :'budget'}?`
+export const ConfirmDeleteDialog: React.FC<ConfirmDeleteDialogProps> = ({ visible, onDismiss, onConfirm, type, message }) => {
+    const body:string = message ? 'Are you sure you want to delete your account? This action cannot be undone.' : `Are you sure you want to delete this ${type === ScreenType.TRANSACTIONS ? 'expense' :'budget'}?`
     return (
         <Portal>
             <Dialog visible={visible} onDismiss={onDismiss} style={styles.dialog}>
