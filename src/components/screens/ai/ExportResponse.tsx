@@ -1,16 +1,61 @@
 import { registrationStyles } from "@components/auth/registrationStyles";
 import { AIFinancialAnalysis } from "@ourtypes/Ai";
 import React from "react";
-import { Platform, StyleSheet, Text, ToastAndroid, TouchableOpacity } from "react-native";
+import { Alert, Linking, Platform, StyleSheet, Text, ToastAndroid, TouchableOpacity } from "react-native";
 import RNFS from "react-native-fs";
 import Share from "react-native-share";
+import { check, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 
 import { theme } from "src/utils/theme";
 
 export const ExportResponse: React.FC<{ data: AIFinancialAnalysis }> = ({
     data,
 }) => {
+
+    const requestStoragePermission = async () => {
+        if (Platform.OS !== "android") return true;
+    
+        try {
+            let permission =
+                Platform.Version >= 33
+                    ? PERMISSIONS.ANDROID.READ_MEDIA_IMAGES 
+                    : Platform.Version >= 30
+                    ? PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE 
+                    : PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE; 
+    
+            const status = await check(permission);
+            if (status === RESULTS.GRANTED) {
+                console.log("Storage permission already granted");
+                return true;
+            }
+    
+            const result = await request(permission);
+    
+            if (result === RESULTS.GRANTED) {
+                console.log("Storage permission granted");
+                return true;
+            } else if (result === RESULTS.DENIED) {
+                Alert.alert("Permission Required", "Storage permission is required to save files.", [
+                    { text: "OK" },
+                ]);
+            } else if (result === RESULTS.BLOCKED) {
+                Alert.alert(
+                    "Permission Blocked",
+                    "You have permanently denied storage permission. Please enable it in settings.",
+                    [{ text: "Go to Settings", onPress: () => Linking.openSettings() }]
+                );
+            }
+            return false;
+        } catch (error) {
+            console.error("Permission error:", error);
+            return false;
+        }
+    };
+    
     const saveAndShareCSV = async (csvData: string) => {
+        const hasPermission = await requestStoragePermission();
+        if (!hasPermission) return;
+
         try {
             const filePath =
                 Platform.OS === "android"
