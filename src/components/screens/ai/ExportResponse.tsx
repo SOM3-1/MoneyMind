@@ -57,10 +57,11 @@ export const ExportResponse: React.FC<{ data: AIFinancialAnalysis }> = ({
         if (!hasPermission) return;
 
         try {
-            const filePath =
-                Platform.OS === "android"
-                    ? `${RNFS.DownloadDirectoryPath}/financial_report.csv` 
-                    : `${RNFS.DocumentDirectoryPath}/financial_report.csv`; 
+            const androidVersion = Number(Platform.Version); 
+
+            const filePath = androidVersion >= 29
+                ? `${RNFS.ExternalDirectoryPath}/financial_report.csv`
+                : `${RNFS.DownloadDirectoryPath}/financial_report.csv`;
     
             await RNFS.writeFile(filePath, csvData, "utf8");
     
