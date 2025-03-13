@@ -85,11 +85,11 @@ export const AccountScreenNavigator: React.FC = () => {
         <List.Item
           title="Delete Account"
           description="Permanently remove your account."
-          left={(props) => <List.Icon {...props} icon="delete" color={theme.colors.warning} />}
-          right={(props) => <List.Icon {...props} icon="chevron-right" color={theme.colors.warning} />}
+          left={(props) => <List.Icon {...props} icon="delete" color={theme.colors.delete} />}
+          right={(props) => <List.Icon {...props} icon="chevron-right" color={theme.colors.delete} />}
           onPress={() => setModalVisible(true)}
-          titleStyle={{ ...accountScreenNavigatorStyles.title, color: theme.colors.warning }}
-          descriptionStyle={{ ...accountScreenNavigatorStyles.subTitle, color: theme.colors.warning }}
+          titleStyle={{ ...accountScreenNavigatorStyles.title, color: theme.colors.delete }}
+          descriptionStyle={{ ...accountScreenNavigatorStyles.subTitle, color: theme.colors.delete }}
         />
       </List.Section>
       <ConfirmDeleteDialog

@@ -26,8 +26,8 @@ export const theme = {
     shopping: '#12568E',
     health:  '#00EEFF',
     other: '#AAAAAA',
-    warning: '#FF0F0F'
-
+    warning: '#FF0F0F',
+    delete: '#D32F2F'
   },
   fonts: {
     regular: "Montserrat-Regular",
