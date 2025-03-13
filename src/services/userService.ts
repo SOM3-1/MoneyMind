@@ -44,7 +44,6 @@ export const getUserName = async ():Promise<string> => {
       }
 
       const userId = user.uid;
-      console.log(`Fetching user name for userId: ${userId} from ${API_URL}/users/${userId}`);
 
       try {
         const response = await fetch(`${API_URL}/users/${userId}`, {

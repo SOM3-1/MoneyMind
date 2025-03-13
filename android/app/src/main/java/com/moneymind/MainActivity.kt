@@ -1,4 +1,4 @@
-package com.moneymind
+package com.moneymindmobileapp
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

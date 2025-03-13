@@ -162,3 +162,6 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# bundle file
+/**/index.android.bundle
