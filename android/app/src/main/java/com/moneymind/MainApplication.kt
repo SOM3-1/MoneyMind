@@ -1,4 +1,4 @@
-package com.moneymind
+package com.moneymindmobileapp
 
 import android.app.Application
 import com.facebook.react.PackageList
