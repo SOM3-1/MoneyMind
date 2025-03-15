@@ -53,24 +53,18 @@ export const ExportResponse: React.FC<{ data: AIFinancialAnalysis }> = ({
     };
     
     const saveAndShareCSV = async (csvData: string) => {
-        const hasPermission = await requestStoragePermission();
-        if (!hasPermission) return;
-
         try {
-            const androidVersion = Number(Platform.Version); 
+            const filePath = `${RNFS.ExternalDirectoryPath}/financial_report.csv`;
 
-            const filePath = androidVersion >= 29
-                ? `${RNFS.ExternalDirectoryPath}/financial_report.csv`
-                : `${RNFS.DownloadDirectoryPath}/financial_report.csv`;
-    
             await RNFS.writeFile(filePath, csvData, "utf8");
     
-            ToastAndroid.show("File saved to Downloads!", ToastAndroid.SHORT);
-    
+            ToastAndroid.show("File saved successfully!", ToastAndroid.SHORT);
+
             await Share.open({
                 url: `file://${filePath}`,
                 type: "text/csv",
             });
+
         } catch (error: unknown) {
             if (typeof error === "object" && error !== null && "message" in error) {
                 const errorMessage = (error as { message: string }).message;
@@ -80,7 +74,7 @@ export const ExportResponse: React.FC<{ data: AIFinancialAnalysis }> = ({
                     return; 
                 }
             }
-    
+
             console.error("Error saving/opening CSV:", error);
             ToastAndroid.show("Download failed!", ToastAndroid.SHORT);
         }
