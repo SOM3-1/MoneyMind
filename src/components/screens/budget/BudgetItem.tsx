@@ -29,8 +29,8 @@ export const BudgetItem: React.FC<{ budget: Budget }> = ({ budget }) => {
         return `${day}${suffix} ${date.toFormat("MMM yyyy")}`;
     };
 
-    const totalSpent = parseFloat(Object.values(budget.categoryTotals || {}).reduce((sum, val) => sum + val, 0).toFixed(2));
-    const remaining = parseFloat((budget.amount - totalSpent).toFixed(2));
+    const totalSpent = Object.values(budget.categoryTotals || {}).reduce((sum, val) => sum + val, 0);
+    const remaining = budget.amount - totalSpent;
 
     const categories = Object.entries(budget.categoryTotals || {}).filter(([_, value]) => value > 0);
     const progressValues = [...categories, ["Remaining", remaining]].filter(([_, value]) => value > 0);

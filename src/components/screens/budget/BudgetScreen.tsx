@@ -25,8 +25,9 @@ export const BudgetScreen: React.FC = () => {
   const fetchbudgets = async () => {
     try {
       const data = await getUserBudgetTransactions();
-      setBudgets(data);
-      setFilteredBudgets(data);
+      const sorted = [...data].sort((a, b) => new Date(b.fromDate).getTime() - new Date(a.fromDate).getTime());
+      setBudgets(sorted);
+      setFilteredBudgets(sorted);
     } catch (error) {
       console.error(error);
     } finally {

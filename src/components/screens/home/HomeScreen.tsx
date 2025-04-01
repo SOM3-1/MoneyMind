@@ -26,8 +26,9 @@ export const HomeScreen: React.FC = () => {
     try {
       setLoading(true);
       const data = await getUserTransactions();
-      setTransactions(data);
-      setFilteredTransactions(data);
+      const sorted = [...data].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      setTransactions(sorted);
+      setFilteredTransactions(sorted);
     } catch (error) {
       console.error(error);
     } finally {
