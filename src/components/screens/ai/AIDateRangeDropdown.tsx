@@ -1,5 +1,5 @@
 import { DATE_RANGE_OPTIONS } from "@constants/dateRange";
-import { DateRange } from "@ourtypes/Ai";
+import { AIFinancialAnalysis, DateRange } from "@ourtypes/Ai";
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { theme } from "src/utils/theme";
@@ -9,9 +9,10 @@ import { aiScreenStyles } from "./aiScreenStyles";
 interface AIDateRangeDropdownProps {
   selectedRange: DateRange;
   onChange: (value: DateRange) => void;
+  aiAnalytics: AIFinancialAnalysis | null
 }
 
-export const AIDateRangeDropdown: React.FC<AIDateRangeDropdownProps> = ({ selectedRange, onChange }) => {
+export const AIDateRangeDropdown: React.FC<AIDateRangeDropdownProps> = ({ selectedRange, onChange, aiAnalytics }) => {
 const [open, setOpen] = useState(false);
 
   return (
@@ -22,8 +23,8 @@ const [open, setOpen] = useState(false);
         setOpen={setOpen}
         setValue={(callback) => onChange(callback(selectedRange))}
         items={DATE_RANGE_OPTIONS}
-        style={aiScreenStyles.dropdown}
-        dropDownContainerStyle={aiScreenStyles.dropdownMenu}
+        style={{...aiScreenStyles.dropdownTemp, backgroundColor : aiAnalytics ? theme.colors.background : theme.colors.white}}
+        dropDownContainerStyle={{...aiScreenStyles.dropdownMenu,  backgroundColor : aiAnalytics ? theme.colors.background : theme.colors.white}}
         textStyle={aiScreenStyles.dropDownText}
         placeholder=""
         showArrowIcon={true}

@@ -28,7 +28,6 @@ export const AIAnalyticsScreenNavigator: React.FC = () => {
     try {
       setLoading(true);
       const data = await getAIFinancialAnalysis(selectedRange);
-      console.log(data)
       setAiAnalytics(data);
     } catch (error) {
       console.error("Error fetching AI analytics:", error);
@@ -84,9 +83,10 @@ export const AIAnalyticsScreenNavigator: React.FC = () => {
             <AIDateRangeDropdown
               selectedRange={selectedRange}
               onChange={handleDateRangeChange}
+              aiAnalytics={aiAnalytics}
             />
             {!aiAnalytics ? 
-              <EmptyData type={ScreenType.AI} /> :
+            <EmptyData type={ScreenType.AI} /> :
             <AIScreenData aiAnalytics={aiAnalytics} />}
           </ScrollView>
       </View>

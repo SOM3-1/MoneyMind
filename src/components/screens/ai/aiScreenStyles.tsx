@@ -116,7 +116,6 @@ export const aiScreenStyles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   dropdownMenu: {
-    backgroundColor: theme.colors.background,
     borderColor: theme.colors.primary,
   },
   dropDownText: {
@@ -127,5 +126,11 @@ export const aiScreenStyles = StyleSheet.create({
   },
   barGraphTitle: {
     color: theme.colors.darkText
-  }
+  },
+  dropdownTemp: {
+    borderColor: theme.colors.primary,
+    minHeight: 40,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+  },
 });
