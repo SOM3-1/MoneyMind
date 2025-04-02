@@ -30,7 +30,7 @@ export const BudgetItem: React.FC<{ budget: Budget }> = ({ budget }) => {
     };
 
     const totalSpent = Object.values(budget.categoryTotals || {}).reduce((sum, val) => sum + val, 0);
-    const remaining = budget.amount - totalSpent;
+    const remaining =  parseFloat((Number(budget.amount) - Number(totalSpent)).toFixed(2));
 
     const categories = Object.entries(budget.categoryTotals || {}).filter(([_, value]) => value > 0);
     const progressValues = [...categories, ["Remaining", remaining]].filter(([_, value]) => value > 0);
