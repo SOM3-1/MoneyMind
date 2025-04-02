@@ -74,10 +74,6 @@ export const AIAnalyticsScreenNavigator: React.FC = () => {
     <View style={{...aiScreenStyles.container, backgroundColor: !aiAnalytics ? theme.colors.white  : theme.colors.background}}>
       <View style={aiScreenStyles.contentContainer}>
         <Intro />
-
-        {!aiAnalytics ? (
-          <EmptyData type={ScreenType.AI} />
-        ) : (
           <ScrollView contentContainerStyle={aiScreenStyles.scrollContent} showsVerticalScrollIndicator={false} refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           } >
@@ -89,9 +85,10 @@ export const AIAnalyticsScreenNavigator: React.FC = () => {
               selectedRange={selectedRange}
               onChange={handleDateRangeChange}
             />
-            <AIScreenData aiAnalytics={aiAnalytics} />
+            {!aiAnalytics ? 
+              <EmptyData type={ScreenType.AI} /> :
+            <AIScreenData aiAnalytics={aiAnalytics} />}
           </ScrollView>
-        )}
       </View>
     </View>
   );
