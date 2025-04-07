@@ -32,4 +32,4 @@ const auth = initializeAuth(app, {
 const db = getFirestore(app); 
 const realtimeDb = getDatabase(app); 
 
-export { auth, db, realtimeDb };
+export { app, auth, db, realtimeDb };

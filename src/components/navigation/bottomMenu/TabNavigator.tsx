@@ -1,6 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
+<<<<<<< HEAD
 import { BudgetScreenNavigator } from '@components/screens/budget/BudgetScreenNavigator';
+=======
+import  BudgetScreenNavigator  from '@components/screens/budget/BudgetScreenNavigator';
+>>>>>>> c522c66 (Initial commit on dev branch)
 import { AIAnalyticsScreenNavigator } from '@components/screens/ai/AIAnalyticsScreenNavigator';
 import { AccountScreenNavigator } from '@components/screens/account/AccountScreenNavigator';
 import { HomeScreenNavigator } from '@components/screens/home/HomeScreenNavigator';
