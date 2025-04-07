@@ -12,9 +12,10 @@ import { CustomError } from '@components/error/CustomError';
 import ErrorBoundary from 'react-native-error-boundary';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import AuthListener from '@components/auth/AuthListener';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 function App(): React.JSX.Element {
-  
+
   const backgroundStyle = {
     backgroundColor: theme.colors.background,
     flex: 1
@@ -30,8 +31,10 @@ function App(): React.JSX.Element {
         <ErrorBoundary FallbackComponent={CustomFallback}>
           <Provider store={appStore}>
             <PersistGate loading={null} persistor={persistor}>
-              <MenuWrapperComponent />
-              <AuthListener/>
+              <PaperProvider>
+                <MenuWrapperComponent />
+                <AuthListener />
+              </PaperProvider>
             </PersistGate>
           </Provider>
         </ErrorBoundary>

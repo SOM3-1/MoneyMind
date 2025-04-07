@@ -28,6 +28,7 @@ export const TabNavigator = () => {
         tabBarLabelStyle: menuStyles.menuLabel, 
         tabBarActiveBackgroundColor: theme.colors.primary,
         tabBarActiveTintColor: 'white',
+        tabBarLabelPosition: 'below-icon',
         tabBarIcon: ({ focused }) => {
           let IconComponent;
           switch (route.name) {

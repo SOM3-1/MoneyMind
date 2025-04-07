@@ -1,6 +1,5 @@
 import { API_URL } from "@env";
 export const registerUser = async (userId: string, name: string, email: string) => {
-  console.log(API_URL,userId, name, email , `${API_URL}/register`)
     try {
     const response = await fetch(`${API_URL}/register`, {
       method: "POST",
@@ -22,7 +21,8 @@ export const registerUser = async (userId: string, name: string, email: string) 
 
     return data;
   } catch (error) {
-    console.error("API Error:", error.message);
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
+    console.error("API Error:", errorMessage);
     throw error;
   }
 };

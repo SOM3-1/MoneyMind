@@ -2,6 +2,7 @@ import React from "react";
 import { TextInput } from "react-native-paper";
 import { View, StyleSheet } from "react-native";
 import { theme } from "src/utils/theme";
+import { getFontSize } from "@helpers/dynamic";
 
 interface CustomTextInputProps {
   label?: string;
@@ -11,18 +12,22 @@ interface CustomTextInputProps {
   secureTextEntry?: boolean;
   keyboardType?: "default" | "numeric" | "email-address";
   style?: object;
-  onBlur?: () => void
+  onBlur?: () => void;
+  editable?: boolean;
+  rightIcon?: React.ReactNode;
 }
 
 const CustomTextInput: React.FC<CustomTextInputProps> = ({
   label = "Enter text",
   value = "",
-  onChangeText = () => { },
+  onChangeText = () => {},
   placeholder = "",
   secureTextEntry = false,
   keyboardType = "default",
   style = {},
-  onBlur = () => { }
+  editable = true,
+  onBlur = () => {},
+  rightIcon = null, 
 }) => {
   return (
     <View style={[styles.container, style]}>
@@ -36,14 +41,18 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
         keyboardType={keyboardType}
         style={styles.input}
         onBlur={onBlur}
-        contentStyle={styles.labelStyle}
+        editable={editable}
+        right={rightIcon ? <TextInput.Icon icon={() => rightIcon} /> : null}
         theme={{
           colors: {
             primary: theme.colors.subtitle,
-            background: theme.colors.white, 
-            text: theme.colors.subtitle,  
-        },
+            background: theme.colors.background,
+            text: theme.colors.darkText,
+          },
         }}
+        contentStyle={{fontFamily: theme.fonts.regular,
+          fontSize: 14,
+          color: theme.colors.darkText,}}
       />
     </View>
   );
@@ -52,20 +61,17 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    marginVertical: 8,
-    height: 56
   },
   input: {
-    fontFamily: 'Montserrat-Bold',
-    fontSize: 14,
-    color: theme.colors.subtitle,
-    fontWeight: 600,
-    height: 56
+    fontFamily: theme.fonts.bold,
+    fontSize: getFontSize(14),
+    color: theme.colors.darkText,
+    height: 56,
   },
   labelStyle: {
-    color: theme.colors.subtitle,
-    fontWeight: 100,
-  }
+    color: theme.colors.darkText,
+    fontFamily: theme.fonts.bold,
+  },
 });
 
 export default CustomTextInput;
