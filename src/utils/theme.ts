@@ -11,10 +11,6 @@ export const theme = {
     disabled: '#6c757d',
     subtitle:'#616161',
     shadesOfGray: '#333333',
-<<<<<<< HEAD
     darkText: '#212121'
-=======
-    darkText: '#212121',
->>>>>>> c522c66 (Initial commit on dev branch)
   },
 } as const;
