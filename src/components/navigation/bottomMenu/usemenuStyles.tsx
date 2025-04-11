@@ -3,7 +3,6 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { theme } from 'src/utils/theme';
-import { getFontSize } from '@helpers/dynamic';
 
 const getBackgroundColor = (colorScheme: string | null | undefined) => {
   return colorScheme === 'dark' ? Colors.darker : Colors.lighter;
@@ -29,15 +28,13 @@ const useMenuStyles = () => {
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 5,
-      flexDirection:'column'
     },
     menuLabel: {
       color: theme.colors.white, 
       fontFamily: 'Montserrat-Bold',
-      fontSize: getFontSize(12),
+      fontSize: 12,
       fontWeight: 'bold',
       marginTop: 8,
-      flexDirection:'column'
     },
   });
 

@@ -70,5 +70,16 @@
 		<string>Montserrat-ThinItalic.ttf</string>
 		<string>Montserrat-VariableFont_wght.ttf</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>moneymind</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>com.moneymindmobileapp</string>
+		</dict>
+	</array>
 </dict>
 </plist>

@@ -1,4 +1,3 @@
-import { getFontSize } from "@helpers/dynamic";
 import { StyleSheet } from "react-native";
 import { theme } from "src/utils/theme";
 
@@ -16,7 +15,7 @@ export const customErrorStyles = StyleSheet.create({
         gap: 10
     },
     header: {
-        fontSize: getFontSize(23),
+        fontSize: 23,
         fontWeight: 500,
         fontFamily:'Montserrat-Bold',
         textAlign: 'center',
@@ -24,7 +23,7 @@ export const customErrorStyles = StyleSheet.create({
         color: theme.colors.black
     },
     body: {
-        fontSize: getFontSize(18),
+        fontSize: 18,
         fontFamily:'Montserrat-Regular',
         textAlign: 'center',
         lineHeight: 27,

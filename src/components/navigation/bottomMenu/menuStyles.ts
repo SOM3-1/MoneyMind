@@ -1,4 +1,3 @@
-import { getFontSize } from '@helpers/dynamic';
 import { StyleSheet } from 'react-native';
 import { initialWindowMetrics } from 'react-native-safe-area-context';
 import { theme } from 'src/utils/theme';
@@ -24,7 +23,7 @@ export const menuStyles = StyleSheet.create({
   menuLabel: {
     color: theme.colors.white, 
     fontFamily: 'Montserrat-Bold',
-    fontSize: getFontSize(12),
+    fontSize: 12,
     fontWeight: 'bold',
     marginTop: 8
   },

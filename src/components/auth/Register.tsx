@@ -2,7 +2,6 @@ import { SelectionType } from "@ourtypes/Auth";
 import React, { useState } from "react";
 import {
   ActivityIndicator,
-  ScrollView,
   Text,
   ToastAndroid,
   TouchableOpacity,
@@ -87,7 +86,7 @@ export const Register: React.FC<Prop> = ({ handleSelection }) => {
   };
 
   return (
-    <ScrollView contentContainerStyle={registrationStyles.container}>
+    <View style={registrationStyles.container}>
       <View style={registrationStyles.firstSection}>
         <LogoComponent />
       </View>
@@ -130,7 +129,7 @@ export const Register: React.FC<Prop> = ({ handleSelection }) => {
           </View>
         </View>
       </View>
-      <View style={{...registrationStyles.thirdSection, marginTop: 18}}>
+      <View style={registrationStyles.thirdSection}>
         {/* {error ? (
                     <Text style={registrationStyles.errorText}>{error}</Text>
                 ) : null} */}
@@ -163,6 +162,6 @@ export const Register: React.FC<Prop> = ({ handleSelection }) => {
           </View>
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 };

@@ -86,6 +86,10 @@ android {
         versionCode 1
         versionName "1.0"
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7cfb5ece7be5bac333020d942274de734c283e82
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -94,13 +98,20 @@ android {
             keyPassword 'android'
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7cfb5ece7be5bac333020d942274de734c283e82
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
         }
         release {
+<<<<<<< HEAD
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
+=======
+>>>>>>> 7cfb5ece7be5bac333020d942274de734c283e82
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
@@ -111,6 +122,10 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+<<<<<<< HEAD
+=======
+    implementation project(':react-native-plaid-link-sdk')
+>>>>>>> 7cfb5ece7be5bac333020d942274de734c283e82
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

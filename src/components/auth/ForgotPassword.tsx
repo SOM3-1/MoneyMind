@@ -2,7 +2,6 @@ import { SelectionType } from "@ourtypes/Auth";
 import React, { useState } from "react";
 import {
     ActivityIndicator,
-    ScrollView,
     Text,
     ToastAndroid,
     TouchableOpacity,
@@ -63,7 +62,7 @@ export const ForgotPassword: React.FC<Prop> = ({ handleSelection }) => {
     };
 
     return (
-        <ScrollView contentContainerStyle={registrationStyles.container}>
+        <View style={registrationStyles.container}>
             <View style={registrationStyles.firstSection}>
                 <LogoComponent />
             </View>
@@ -104,6 +103,6 @@ export const ForgotPassword: React.FC<Prop> = ({ handleSelection }) => {
                     )}
                 </TouchableOpacity>
             </View>
-        </ScrollView>
+        </View>
     );
 };
