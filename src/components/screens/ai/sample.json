@@ -1,0 +1,48 @@
+{
+  "total_expenses": 1575,
+  "exceeded_budget": 1,
+  "exceeded_categories": {
+    "Food & Entertainment": 125.0,
+    "Shopping": 215.0,
+    "Health & Wellness": 110.0
+  },
+  "expense_trend": "Overspent by $75.00",
+  "spending_trend": "You have spent 105.0% of your budget.",
+  "future_risk_prediction": "You might overspend by $1500.00 next period.",
+  "savings": {
+    "amount": -75,
+    "percentage": "-5.0%"
+  },
+  "budget_utilization": {
+    "percentage": "105.0%",
+    "change": "95.00%"
+  },
+  "potential_savings": {
+    "category": "Shopping",
+    "saved_amount": 515
+  },
+  "constant_spending": {
+    "category": "Other",
+    "amount": 70
+  },
+  "top_spending_category": {
+    "category": "Shopping",
+    "amount": 515
+  },
+  "low_spending_category": {
+    "category": "Other",
+    "amount": 70
+  },
+  "predicted_future_expenses": 3000,
+  "predicted_savings_next_month": 0,
+  "abnormal_spending_alerts": [],
+  "warnings": ["You have exceeded your budget by $75.00."],
+  "total_budget": 1500,
+  "categories": {
+    "Essentials": 155,
+    "Food & Entertainment": 425,
+    "Shopping": 515,
+    "Health & Wellness": 410,
+    "Other": 70
+  }
+}
